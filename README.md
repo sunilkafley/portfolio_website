@@ -1,73 +1,63 @@
-# React + TypeScript + Vite
+# Sunil Kafley Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio for Sunil Kafley, built with React, TypeScript, Tailwind CSS, and Vite.
 
-Currently, two official plugins are available:
+Live site: [sunilkafley.com](https://www.sunilkafley.com/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Local development
 
-## React Compiler
+Use Node.js 22 and install the exact dependency versions recorded in `package-lock.json`:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm ci
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Vite prints the local preview address in the terminal.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Available scripts
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the local development server |
+| `npm run lint` | Check the source with ESLint |
+| `npm run build` | Type-check and create the production build |
+| `npm run preview` | Serve the production build locally |
+
+## Delivery workflow
+
+Think of the release process as a workshop and delivery route:
+
+- A feature branch is the workbench where changes are made safely.
+- GitHub Actions is the inspector that installs dependencies, runs lint, and builds the site.
+- Vercel creates a temporary preview for branch and pull-request changes.
+- Merging an approved pull request into `main` tells Vercel to publish the new production version to `sunilkafley.com`.
+
+```text
+feature branch
+      ↓
+GitHub Actions checks + Vercel preview
+      ↓
+pull-request review
+      ↓
+merge into main
+      ↓
+Vercel production deployment
+      ↓
+sunilkafley.com
 ```
+
+The repository's Vercel Git integration is already active. The workflow in `.github/workflows/ci.yml` adds the independent GitHub quality check.
+
+## Recommended contribution routine
+
+1. Create a branch from the latest `main`.
+2. Make one focused change.
+3. Run `npm run lint` and `npm run build` locally.
+4. Push the branch and review its Vercel preview.
+5. Open a pull request and wait for the CI check.
+6. Merge only after the preview and check are satisfactory.
+
+## Planning
+
+The current baseline findings and improvement order are documented in [`docs/relaunch-plan.md`](docs/relaunch-plan.md).

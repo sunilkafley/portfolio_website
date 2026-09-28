@@ -5,6 +5,11 @@ type SEOProps = {
   description: string
 }
 
+const siteUrl = "https://www.sunilkafley.com/"
+const socialImageUrl = `${siteUrl}og-image.jpg`
+const socialImageAlt =
+  "Sunil Kafley — Software Engineering Student and aspiring Full-Stack Developer"
+
 const SEO = ({
   title,
   description,
@@ -20,7 +25,15 @@ const SEO = ({
         content={description}
       />
 
+      <link rel="canonical" href={siteUrl} />
+
       {/* Open Graph */}
+      <meta property="og:locale" content="en_NZ" />
+
+      <meta property="og:site_name" content="Sunil Kafley" />
+
+      <meta property="og:url" content={siteUrl} />
+
       <meta property="og:title" content={title} />
 
       <meta
@@ -32,6 +45,21 @@ const SEO = ({
         property="og:type"
         content="website"
       />
+
+      <meta property="og:image" content={socialImageUrl} />
+
+      <meta
+        property="og:image:secure_url"
+        content={socialImageUrl}
+      />
+
+      <meta property="og:image:type" content="image/jpeg" />
+
+      <meta property="og:image:width" content="1200" />
+
+      <meta property="og:image:height" content="630" />
+
+      <meta property="og:image:alt" content={socialImageAlt} />
 
       {/* Twitter */}
       <meta
@@ -48,6 +76,10 @@ const SEO = ({
         name="twitter:description"
         content={description}
       />
+
+      <meta name="twitter:image" content={socialImageUrl} />
+
+      <meta name="twitter:image:alt" content={socialImageAlt} />
 
     </Helmet>
   )

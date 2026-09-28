@@ -17,8 +17,8 @@ const Home = () => {
   return (
     <>
       <SEO
-        title="Sunil Kafley | Full Stack Developer"
-        description="Modern frontend and full stack developer portfolio built with React, TypeScript, Tailwind CSS and Django"
+        title="Sunil Kafley | Software Engineering Student"
+        description="Portfolio of Sunil Kafley, a software engineering student and aspiring full-stack developer building modern web applications with React, TypeScript, and Django."
       />
       <GridBackground />
       <NoiseOverlay />

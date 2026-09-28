@@ -427,7 +427,7 @@ const Hero = () => {
               sizes="(min-width: 1280px) 460px, (min-width: 1024px) 400px, (min-width: 768px) 340px, (min-width: 640px) 280px, 220px"
               alt="Portrait of Sunil Kafley"
               width={460}
-              height={470}
+              height={531}
               fetchPriority="high"
               animate={
                 shouldReduceMotion
@@ -451,6 +451,7 @@ const Hero = () => {
 
                 h-auto
                 object-contain
+                rounded-[2rem]
 
                 drop-shadow-[0_20px_80px_rgba(0,0,0,0.35)]
               "

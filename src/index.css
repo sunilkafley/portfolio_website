@@ -38,6 +38,11 @@
   /* NAVBAR */
   --navbar-bg: rgba(5, 8, 22, 0.94);
   --navbar-border: rgba(255,255,255,0.12);
+
+  /* STATUS */
+  --availability-bg: #0F3D32;
+  --availability-border: #34D399;
+  --availability-text: #D1FAE5;
 }
 
 /* =========================
@@ -67,6 +72,10 @@
 
   --navbar-bg: rgba(255,255,255,0.90);
   --navbar-border: rgba(15,23,42,0.08);
+
+  --availability-bg: #D1FAE5;
+  --availability-border: #34D399;
+  --availability-text: #065F46;
 }
 
 /* =========================
@@ -302,6 +311,12 @@ html.lenis body {
 
   .text-muted {
     color: var(--color-text-muted);
+  }
+
+  .availability-badge {
+    background: var(--availability-bg);
+    border: 1px solid var(--availability-border);
+    color: var(--availability-text);
   }
 
   /* Effects */

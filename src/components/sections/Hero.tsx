@@ -169,19 +169,18 @@ const Hero = () => {
 
                 rounded-full
 
-                border border-blue-300
-                bg-emerald-50
-                
-                font semibold
+                availability-badge
+                font-semibold
 
-                dark:border-emerald-500/20
-                dark:bg-emerald-500/10
-                
                 mb-8
               "
             >
-              <span className="text-emerald-700 dark:text-emerald-300 font-semibold animate-pulse">
-              Available for internships & graduate opportunities
+              <span
+                aria-hidden="true"
+                className="h-2 w-2 shrink-0 rounded-full bg-emerald-400 motion-safe:animate-pulse"
+              />
+              <span>
+                Available for internships & graduate opportunities
               </span>
             </motion.div>
 

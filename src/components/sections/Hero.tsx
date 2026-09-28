@@ -16,6 +16,8 @@ import {
 } from "react-icons/hi2"
 
 import profileImage from "../../assets/images/profile.webp"
+import profileImageSmall from "../../assets/images/profile-320.webp"
+import profileImageMedium from "../../assets/images/profile-640.webp"
 
 import SocialLinks from "../ui/SocialLinks"
 
@@ -421,9 +423,12 @@ const Hero = () => {
             {/* Profile Image */}
             <motion.img
               src={profileImage}
+              srcSet={`${profileImageSmall} 320w, ${profileImageMedium} 640w, ${profileImage} 920w`}
+              sizes="(min-width: 1280px) 460px, (min-width: 1024px) 400px, (min-width: 768px) 340px, (min-width: 640px) 280px, 220px"
               alt="Portrait of Sunil Kafley"
               width={460}
-              height={460}
+              height={470}
+              fetchPriority="high"
               animate={
                 shouldReduceMotion
                   ? {}

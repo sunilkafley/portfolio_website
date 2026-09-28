@@ -186,8 +186,14 @@ const About = () => {
             <div className="card p-4 lg:p-5">
 
               <img
-                src="/projects/project1.png"
+                src="/projects/project1-about.webp"
+                srcSet="/projects/project1-about-480.webp 480w, /projects/project1-about-800.webp 800w, /projects/project1-about.webp 1200w"
+                sizes="(min-width: 1280px) 584px, (min-width: 1024px) calc(50vw - 48px), calc(100vw - 32px)"
                 alt="Project Preview"
+                width={1200}
+                height={1083}
+                loading="lazy"
+                decoding="async"
                 className="
                   rounded-2xl
                   w-full

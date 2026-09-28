@@ -4,7 +4,8 @@ import { HelmetProvider } from "react-helmet-async"
 
 import App from "./App"
 
-
+import "@fontsource-variable/inter/wght.css"
+import "@fontsource-variable/sora/wght.css"
 import "./index.css"
 
 import Lenis from "lenis"

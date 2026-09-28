@@ -41,6 +41,12 @@
   --availability-bg: #0F3D32;
   --availability-border: #34D399;
   --availability-text: #D1FAE5;
+
+  /* HERO PORTRAIT */
+  --hero-grid-line: rgba(125, 211, 252, 0.08);
+  --portrait-halo-start: #4338CA;
+  --portrait-halo-end: #1D4ED8;
+  --portrait-glow: rgba(79, 70, 229, 0.38);
 }
 
 /* =========================
@@ -74,6 +80,11 @@
   --availability-bg: #D1FAE5;
   --availability-border: #34D399;
   --availability-text: #065F46;
+
+  --hero-grid-line: rgba(15, 23, 42, 0.06);
+  --portrait-halo-start: #E0E7FF;
+  --portrait-halo-end: #BFDBFE;
+  --portrait-glow: rgba(99, 102, 241, 0.18);
 }
 
 /* =========================
@@ -163,6 +174,61 @@ html.lenis body {
 ========================= */
 
 @layer components {
+
+  .hero-grid {
+    background-image:
+      linear-gradient(to right, var(--hero-grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--hero-grid-line) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .portrait-stage::before,
+  .portrait-stage::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    aspect-ratio: 1;
+    border-radius: 9999px;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition:
+      background 0.4s ease,
+      box-shadow 0.4s ease;
+  }
+
+  .portrait-stage::before {
+    width: min(78vw, 30rem);
+    background:
+      radial-gradient(
+        circle at 35% 28%,
+        color-mix(in srgb, var(--portrait-halo-start) 82%, white),
+        var(--portrait-halo-start) 42%,
+        var(--portrait-halo-end) 100%
+      );
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--portrait-halo-start) 45%, transparent),
+      0 28px 90px var(--portrait-glow);
+    z-index: 0;
+  }
+
+  .portrait-stage::after {
+    width: min(88vw, 34rem);
+    background: var(--portrait-glow);
+    filter: blur(70px);
+    opacity: 0.8;
+    z-index: -1;
+  }
+
+  @media (max-width: 639px) {
+    .portrait-stage::before {
+      width: min(76vw, 20rem);
+    }
+
+    .portrait-stage::after {
+      width: min(84vw, 23rem);
+    }
+  }
 
   /* Container */
 

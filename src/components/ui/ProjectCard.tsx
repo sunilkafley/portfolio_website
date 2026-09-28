@@ -32,7 +32,11 @@ const ProjectCard = ({
       <div className="relative overflow-hidden">
         <img
           src={project.image}
+          srcSet={project.imageSrcSet}
+          sizes="(min-width: 1280px) 384px, (min-width: 768px) calc(50vw - 36px), calc(100vw - 32px)"
           alt={project.title}
+          width={800}
+          height={480}
           loading="lazy"
           decoding="async"
           className="

@@ -5,7 +5,9 @@ export const projects: Project[] = [
     title: "Fruit Finder App",
     description:
       "Interactive map-based web application to discover fruit trees and public locations around Christchurch.",
-    image: "/projects/project1.png",
+    image: "/projects/project1-card.webp",
+    imageSrcSet:
+      "/projects/project1-card-400.webp 400w, /projects/project1-card.webp 800w",
     tech: ["React", "TypeScript", "Leaflet", "Tailwind"],
     github:
       "https://github.com/sunilkafley/BCDE213-Interactive-Media-Development",
@@ -16,7 +18,9 @@ export const projects: Project[] = [
     title: "Vehicle Rental Management System",
     description:
       "Full-stack Django web application for managing vehicle rentals, customers, and reservations.",
-    image: "/projects/project2.png",
+    image: "/projects/project2-card.webp",
+    imageSrcSet:
+      "/projects/project2-card-400.webp 400w, /projects/project2-card.webp 552w",
     tech: ["Django", "Python", "SQLite", "HTML/CSS"],
     github: "https://github.com/sunilkafley/vehiclerentalmanagement",
     live: "https://sunilkafley.github.io/vehiclerentalmanagement/",
@@ -26,7 +30,9 @@ export const projects: Project[] = [
     title: "Healthcare Referral System",
     description:
       "Secure healthcare referral management system with authentication and CRUD functionality.",
-    image: "/projects/project3.png",
+    image: "/projects/project3-card.webp",
+    imageSrcSet:
+      "/projects/project3-card-400.webp 400w, /projects/project3-card.webp 582w",
     tech: ["Django", "Python", "Bootstrap"],
   },
 ];

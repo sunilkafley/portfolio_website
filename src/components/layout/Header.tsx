@@ -282,7 +282,8 @@ const Header = () => {
             <ThemeToggle />
 
             <a
-              href="/cv.pdf"
+              href="/Sunil_Kafley_CV.pdf"
+              download="Sunil_Kafley_CV.pdf"
               className="
                 button-primary
 
@@ -475,7 +476,8 @@ const Header = () => {
 
               {/* Mobile CV Button */}
               <a
-                href="/cv.pdf"
+                href="/Sunil_Kafley_CV.pdf"
+                download="Sunil_Kafley_CV.pdf"
                 className="
                   button-primary
 

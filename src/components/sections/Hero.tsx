@@ -8,8 +8,10 @@ import {
 } from "react-icons/si"
 
 import {
+  HiArrowDownTray,
   HiArrowRight,
   HiEnvelope,
+  HiMapPin,
 } from "react-icons/hi2"
 
 import profileImage from "../../assets/images/profile.webp"
@@ -33,18 +35,14 @@ const Hero = () => {
         relative
         overflow-hidden
 
-        min-h-screen
-
         flex
         items-start
 
-        pt-36
-        sm:pt-40
-        lg:pt-32
-        xl:pt-36
+        pt-24
 
-        pb-16
-        sm:pb-20
+        pb-10
+        sm:pb-12
+        lg:pb-10
       "
     >
       {/* Background Grid */}
@@ -66,8 +64,8 @@ const Hero = () => {
             lg:grid-cols-2
 
             gap-14
-            lg:gap-16
-            xl:gap-24
+            lg:gap-12
+            xl:gap-16
 
             items-center
           "
@@ -78,8 +76,7 @@ const Hero = () => {
             initial="hidden"
             animate="show"
             className="
-              order-2
-              lg:order-1
+              order-1
 
               text-center
               lg:text-left
@@ -89,29 +86,23 @@ const Hero = () => {
               lg:mx-0
             "
           >
-            {/* Badge */}
-            <motion.div
+            {/* Greeting */}
+            <motion.p
               variants={itemFadeUp}
               className="
-                inline-flex
-                items-center
-                gap-2
-
-                px-4
-                py-2
-
-                rounded-full
-
-                border border-primary/20
-                bg-primary/10
-
                 text-sm
+                sm:text-base
+                font-semibold
+                tracking-[0.16em]
+                uppercase
+                text-primary
 
-                mb-6
+                mb-4
+                lg:mb-3
               "
             >
-              👋 Software Development Student @ Ara Institute of Canterbury
-            </motion.div>
+              Kia Ora, I&apos;m
+            </motion.p>
 
             {/* Title */}
             <motion.h1
@@ -125,7 +116,8 @@ const Hero = () => {
                 md:text-6xl
                 xl:text-7xl
 
-                mb-6
+                mb-4
+                lg:mb-3
               "
             >
               Sunil{" "}
@@ -142,76 +134,86 @@ const Hero = () => {
                 sm:text-xl
                 md:text-2xl
 
-                text-muted
+                font-semibold
+                text-(--color-text)
 
-                mb-6
+                mb-5
+                lg:mb-3
               "
             >
-              Building modern digital experiences with
-              React & Django
+              Software Engineering Student &amp; Full-Stack Developer
             </motion.h2>
 
-            {/* Availability */}
+            {/* Value proposition */}
+            <motion.p
+              variants={itemFadeUp}
+              className="
+                text-base
+                sm:text-lg
+                leading-relaxed
+                text-muted
+                max-w-xl
+                mx-auto
+                lg:mx-0
+                mb-5
+                lg:mb-3
+              "
+            >
+              Building web and mobile applications with React, TypeScript,
+              Python and modern software engineering practices.
+            </motion.p>
+
+            {/* Location */}
             <motion.div
               variants={itemFadeUp}
               className="
                 inline-flex
                 items-center
                 gap-2
-
-                px-4
-                py-2
-
-                rounded-full
-
-                availability-badge
-                font-semibold
-
-                mb-8
+                text-sm
+                sm:text-base
+                text-muted
+                mb-5
+                lg:mb-3
               "
             >
-              <span
-                aria-hidden="true"
-                className="h-2 w-2 shrink-0 rounded-full bg-emerald-400 motion-safe:animate-pulse"
-              />
-              <span>
-                Available for internships & graduate opportunities
-              </span>
+              <HiMapPin aria-hidden="true" className="shrink-0 text-primary" />
+              <span>Christchurch, New Zealand</span>
             </motion.div>
 
-            {/* Description */}
-            <motion.p
+            {/* Availability */}
+            <motion.div
               variants={itemFadeUp}
               className="
-                text-base
-                sm:text-lg
-
-                leading-relaxed
-
-                text-muted
-
-                max-w-xl
-                mx-auto
-                lg:mx-0
-
-                mb-10
+                flex
+                justify-center
+                lg:justify-start
+                mb-8
+                lg:mb-5
               "
             >
-              I build responsive and modern web
-              applications using React, TypeScript
-              and Django. Passionate about creating
-              clean user experiences, solving
-              real-world problems and continuously
-              growing as a full stack developer in
-              New Zealand.
-
-              <br />
-              <br />
-
-              Focused on building real-world
-              projects and growing into a
-              professional software engineer.
-            </motion.p>
+              <div
+                className="
+                  inline-flex
+                  items-center
+                  gap-2
+                  px-4
+                  py-2
+                  rounded-full
+                  availability-badge
+                  text-sm
+                  font-semibold
+                "
+              >
+                <span
+                  aria-hidden="true"
+                  className="h-2 w-2 shrink-0 rounded-full bg-emerald-400 motion-safe:animate-pulse"
+                />
+                <span>
+                  Open to Internship, Graduate &amp; Junior Developer Opportunities
+                </span>
+              </div>
+            </motion.div>
 
             {/* Buttons */}
             <motion.div
@@ -229,7 +231,8 @@ const Hero = () => {
 
                 gap-4
 
-                mb-10
+                mb-5
+                lg:mb-3
               "
             >
               <a
@@ -255,7 +258,8 @@ const Hero = () => {
               </a>
 
               <a
-                href="#contact"
+                href="/Sunil_Kafley_CV.pdf"
+                download="Sunil_Kafley_CV.pdf"
                 className="
                   button-outline
 
@@ -271,107 +275,57 @@ const Hero = () => {
                   hover:-translate-y-1
                 "
               >
-                Contact Me
+                Download CV
 
-                <HiEnvelope size={20} />
+                <HiArrowDownTray aria-hidden="true" size={20} />
               </a>
             </motion.div>
 
-            {/* Stats */}
-            <motion.div
-              variants={itemFadeUp}
+            <div
               className="
                 flex
-                flex-wrap
-
+                flex-col
+                lg:flex-row
+                items-center
                 justify-center
                 lg:justify-start
-
-                gap-8
-
-                mt-10
-                pt-8
-
-                border-t border-white/10
+                lg:gap-5
               "
             >
-              <div>
-                <h3
-                  className="
-                    text-2xl
-                    font-bold
-                    text-primary
-                  "
-                >
-                  5+
-                </h3>
+              {/* Contact link */}
+              <motion.a
+                variants={itemFadeUp}
+                href="#contact"
+                className="
+                  inline-flex
+                  items-center
+                  gap-2
+                  text-sm
+                  font-medium
+                  text-muted
+                  hover:text-primary
+                  transition-colors
+                "
+              >
+                <HiEnvelope aria-hidden="true" size={18} />
+                Contact me
+              </motion.a>
 
-                <p
-                  className="
-                    text-sm
-                    text-muted
-                  "
-                >
-                  Projects Built
-                </p>
-              </div>
+              {/* Social Links */}
+              <motion.div
+                variants={itemFadeUp}
+                className="
+                  flex
+                  justify-center
+                  lg:justify-start
 
-              <div>
-                <h3
-                  className="
-                    text-2xl
-                    font-bold
-                    text-primary
-                  "
-                >
-                  React
-                </h3>
-
-                <p
-                  className="
-                    text-sm
-                    text-muted
-                  "
-                >
-                  Frontend Focus
-                </p>
-              </div>
-
-              <div>
-                <h3
-                  className="
-                    text-2xl
-                    font-bold
-                    text-primary
-                  "
-                >
-                  Django
-                </h3>
-
-                <p
-                  className="
-                    text-sm
-                    text-muted
-                  "
-                >
-                  Backend Development
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Social Links */}
-            <motion.div
-              variants={itemFadeUp}
-              className="
-                flex
-                justify-center
-                lg:justify-start
-
-                mt-8
-              "
-            >
-              <SocialLinks />
-            </motion.div>
+                  mt-6
+                  lg:mt-0
+                "
+              >
+                <SocialLinks />
+              </motion.div>
+            </div>
           </motion.div>
 
           {/* RIGHT CONTENT */}
@@ -382,8 +336,7 @@ const Hero = () => {
             className="
               portrait-stage
 
-              order-1
-              lg:order-2
+              order-2
 
               relative
 
@@ -484,36 +437,6 @@ const Hero = () => {
               />
             </div>
 
-            {/* Learning Badge */}
-            <div
-              className="
-                absolute
-
-                -bottom-4
-                sm:-bottom-6
-                left-1/2
-                -translate-x-1/2
-
-                px-4
-                py-2
-
-                rounded-xl
-
-                border border-white/10
-                bg-(--color-surface)/80
-
-                backdrop-blur-md
-
-                text-sm
-
-                whitespace-nowrap
-
-                z-20
-              "
-            >
-              Currently Learning AI & Cloud
-              Technologies
-            </div>
           </motion.div>
         </div>
       </div>
@@ -524,12 +447,15 @@ const Hero = () => {
         className="
           absolute
 
-          bottom-0 lg:bottom-6
-          left-1/2
-          -translate-x-1/2
+          bottom-2
+          right-4
+          xl:right-8
 
           hidden
           lg:flex
+
+          scale-75
+          origin-bottom-right
 
           items-center
           gap-4

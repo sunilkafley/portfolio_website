@@ -15,6 +15,7 @@ import { fadeUp } from "../../utils/motion"
 
 type ProjectCardProps = {
   project: Project
+  compact?: boolean
 }
 
 const statusStyles: Record<
@@ -45,10 +46,13 @@ const statusStyles: Record<
   },
 }
 
-const ProjectCard = ({ project }: ProjectCardProps) => {
+const ProjectCard = ({ project, compact = false }: ProjectCardProps) => {
   const statusStyle = project.status
     ? statusStyles[project.status]
     : null
+  const visibleTechnologies = compact
+    ? project.technologies.slice(0, 4)
+    : project.technologies
 
   return (
     <motion.article
@@ -65,12 +69,10 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       "
     >
       <div
-        className="
-          relative
-          overflow-hidden
-          aspect-[5/3]
-          bg-primary/5
-        "
+        className={`
+          relative overflow-hidden bg-primary/5
+          ${compact ? "aspect-[2/1]" : "aspect-[5/3]"}
+        `}
       >
         {project.image ? (
           <img
@@ -93,19 +95,18 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           />
         ) : (
           <div
-            className="
-              h-full
-              flex
-              flex-col
-              items-center
-              justify-center
-              gap-3
-              text-muted
+            className={`
+              flex h-full flex-col items-center justify-center text-muted
               bg-[linear-gradient(135deg,var(--color-surface),transparent)]
-            "
+              ${compact ? "gap-2" : "gap-3"}
+            `}
           >
-            <Code2 aria-hidden="true" size={34} className="text-primary/70" />
-            <span className="text-sm font-medium">
+            <Code2
+              aria-hidden="true"
+              size={compact ? 28 : 34}
+              className="text-primary/70"
+            />
+            <span className={compact ? "text-xs font-medium" : "text-sm font-medium"}>
               Screenshot coming soon
             </span>
           </div>
@@ -127,15 +128,13 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           <div
             className={`
               absolute
-              top-3
-              left-3
+              ${compact ? "top-2.5 left-2.5" : "top-3 left-3"}
               inline-flex
               items-center
               gap-2
               rounded-full
               border
-              px-3
-              py-1.5
+              ${compact ? "px-2.5 py-1" : "px-3 py-1.5"}
               text-xs
               font-semibold
               backdrop-blur-md
@@ -161,8 +160,13 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         )}
       </div>
 
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
-        {project.category && (
+      <div
+        className={`
+          flex flex-1 flex-col
+          ${compact ? "p-4 sm:p-5" : "p-5 sm:p-6"}
+        `}
+      >
+        {project.category && !compact && (
           <p
             className="
               mb-2
@@ -177,37 +181,42 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
           </p>
         )}
 
-        <h3 className="mb-3 text-xl font-bold sm:text-2xl">
+        <h3
+          className={
+            compact
+              ? "mb-2 text-lg font-bold sm:text-xl"
+              : "mb-3 text-xl font-bold sm:text-2xl"
+          }
+        >
           {project.title}
         </h3>
 
-        <p className="mb-5 leading-relaxed text-muted">
+        <p
+          className={`
+            text-muted
+            ${compact ? "mb-3 line-clamp-3 text-sm leading-relaxed sm:line-clamp-2" : "mb-5 leading-relaxed"}
+          `}
+        >
           {project.shortDescription}
         </p>
 
         {project.technologies.length > 0 ? (
-          <div className="mb-6 flex flex-wrap gap-2">
-            {project.technologies.map((technology) => (
+          <div className={compact ? "mb-4 flex flex-wrap gap-1.5" : "mb-6 flex flex-wrap gap-2"}>
+            {visibleTechnologies.map((technology) => (
               <span
                 key={technology}
-                className="
-                  rounded-full
-                  border
-                  border-primary/20
-                  bg-primary/10
-                  px-3
-                  py-1.5
-                  text-xs
-                  font-medium
-                  text-primary
-                "
+                className={`
+                  rounded-full border border-primary/20 bg-primary/10
+                  text-xs font-medium text-primary
+                  ${compact ? "px-2.5 py-1" : "px-3 py-1.5"}
+                `}
               >
                 {technology}
               </span>
             ))}
           </div>
         ) : (
-          <p className="mb-6 text-sm italic text-muted">
+          <p className={compact ? "mb-4 text-xs italic text-muted" : "mb-6 text-sm italic text-muted"}>
             Technology details pending
           </p>
         )}
@@ -219,6 +228,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               target="_blank"
               rel="noreferrer"
               className="button-outline flex items-center gap-2"
+              style={compact ? { padding: "0.6rem 0.9rem", borderRadius: "0.75rem" } : undefined}
             >
               <FaGithub aria-hidden="true" />
               GitHub
@@ -231,6 +241,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               target="_blank"
               rel="noreferrer"
               className="button-primary flex items-center gap-2"
+              style={compact ? { padding: "0.6rem 0.9rem", borderRadius: "0.75rem" } : undefined}
             >
               <FaExternalLinkAlt aria-hidden="true" />
               Live Demo

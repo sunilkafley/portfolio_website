@@ -53,7 +53,7 @@ const FeaturedProjects = () => {
         {/* Section Intro */}
         <motion.div
           {...fadeUp}
-          className="max-w-2xl mb-10 lg:mb-8"
+          className="max-w-3xl mb-8 lg:mb-6"
         >
 
           {/* Badge */}
@@ -73,8 +73,7 @@ const FeaturedProjects = () => {
 
               text-sm
 
-              mb-6
-              lg:mb-4
+              mb-4
             "
           >
             🚀 Featured Work
@@ -88,10 +87,9 @@ const FeaturedProjects = () => {
 
               text-4xl
               sm:text-5xl
-              lg:text-6xl
+              lg:text-5xl
 
-              mb-6
-              lg:mb-4
+              mb-4
 
               max-w-xl
             "
@@ -112,7 +110,7 @@ const FeaturedProjects = () => {
 
               leading-relaxed
 
-              max-w-2xl
+              max-w-3xl
             "
           >
             Here are some of my recent projects
@@ -140,8 +138,8 @@ const FeaturedProjects = () => {
             md:grid-cols-2
             xl:grid-cols-3
 
-            gap-6
-            lg:gap-8
+            gap-5
+            lg:gap-6
           "
         >
 
@@ -149,6 +147,7 @@ const FeaturedProjects = () => {
             <ProjectCard
               key={project.id}
               project={project}
+              compact
             />
           ))}
 
@@ -156,7 +155,7 @@ const FeaturedProjects = () => {
 
         <motion.div
           {...fadeUp}
-          className="mt-10 flex justify-center lg:mt-12"
+          className="mt-8 flex justify-center lg:mt-9"
         >
           <Link
             to="/projects"

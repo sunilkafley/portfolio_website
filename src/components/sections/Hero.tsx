@@ -35,18 +35,14 @@ const Hero = () => {
         relative
         overflow-hidden
 
-        min-h-screen
-
         flex
         items-start
 
-        pt-36
-        sm:pt-40
-        lg:pt-32
-        xl:pt-36
+        pt-24
 
-        pb-16
-        sm:pb-20
+        pb-10
+        sm:pb-12
+        lg:pb-10
       "
     >
       {/* Background Grid */}
@@ -68,8 +64,8 @@ const Hero = () => {
             lg:grid-cols-2
 
             gap-14
-            lg:gap-16
-            xl:gap-24
+            lg:gap-12
+            xl:gap-16
 
             items-center
           "
@@ -102,6 +98,7 @@ const Hero = () => {
                 text-primary
 
                 mb-4
+                lg:mb-3
               "
             >
               Kia Ora, I&apos;m
@@ -120,6 +117,7 @@ const Hero = () => {
                 xl:text-7xl
 
                 mb-4
+                lg:mb-3
               "
             >
               Sunil{" "}
@@ -140,6 +138,7 @@ const Hero = () => {
                 text-(--color-text)
 
                 mb-5
+                lg:mb-3
               "
             >
               Software Engineering Student &amp; Full-Stack Developer
@@ -157,6 +156,7 @@ const Hero = () => {
                 mx-auto
                 lg:mx-0
                 mb-5
+                lg:mb-3
               "
             >
               Building web and mobile applications with React, TypeScript,
@@ -174,6 +174,7 @@ const Hero = () => {
                 sm:text-base
                 text-muted
                 mb-5
+                lg:mb-3
               "
             >
               <HiMapPin aria-hidden="true" className="shrink-0 text-primary" />
@@ -188,6 +189,7 @@ const Hero = () => {
                 justify-center
                 lg:justify-start
                 mb-8
+                lg:mb-5
               "
             >
               <div
@@ -230,6 +232,7 @@ const Hero = () => {
                 gap-4
 
                 mb-5
+                lg:mb-3
               "
             >
               <a
@@ -278,38 +281,51 @@ const Hero = () => {
               </a>
             </motion.div>
 
-            {/* Contact link */}
-            <motion.a
-              variants={itemFadeUp}
-              href="#contact"
-              className="
-                inline-flex
-                items-center
-                gap-2
-                text-sm
-                font-medium
-                text-muted
-                hover:text-primary
-                transition-colors
-              "
-            >
-              <HiEnvelope aria-hidden="true" size={18} />
-              Contact me
-            </motion.a>
-
-            {/* Social Links */}
-            <motion.div
-              variants={itemFadeUp}
+            <div
               className="
                 flex
+                flex-col
+                lg:flex-row
+                items-center
                 justify-center
                 lg:justify-start
-
-                mt-6
+                lg:gap-5
               "
             >
-              <SocialLinks />
-            </motion.div>
+              {/* Contact link */}
+              <motion.a
+                variants={itemFadeUp}
+                href="#contact"
+                className="
+                  inline-flex
+                  items-center
+                  gap-2
+                  text-sm
+                  font-medium
+                  text-muted
+                  hover:text-primary
+                  transition-colors
+                "
+              >
+                <HiEnvelope aria-hidden="true" size={18} />
+                Contact me
+              </motion.a>
+
+              {/* Social Links */}
+              <motion.div
+                variants={itemFadeUp}
+                className="
+                  flex
+                  justify-center
+                  lg:justify-start
+
+                  mt-6
+                  lg:mt-0
+                "
+              >
+                <SocialLinks />
+              </motion.div>
+            </div>
           </motion.div>
 
           {/* RIGHT CONTENT */}
@@ -431,12 +447,15 @@ const Hero = () => {
         className="
           absolute
 
-          bottom-0 lg:bottom-6
-          left-1/2
-          -translate-x-1/2
+          bottom-2
+          right-4
+          xl:right-8
 
           hidden
           lg:flex
+
+          scale-75
+          origin-bottom-right
 
           items-center
           gap-4

@@ -15,9 +15,16 @@ const FeaturedProjects = () => {
     <section
       id="projects"
       className="
-        section-spacing
         relative
         overflow-hidden
+
+        pt-6
+        sm:pt-8
+        lg:pt-6
+
+        pb-16
+        sm:pb-20
+        lg:pb-24
       "
     >
       {/* Background Glow */}
@@ -44,7 +51,7 @@ const FeaturedProjects = () => {
         {/* Section Intro */}
         <motion.div
           {...fadeUp}
-          className="max-w-2xl mb-14 lg:mb-16"
+          className="max-w-2xl mb-10 lg:mb-8"
         >
 
           {/* Badge */}
@@ -65,6 +72,7 @@ const FeaturedProjects = () => {
               text-sm
 
               mb-6
+              lg:mb-4
             "
           >
             🚀 Featured Work
@@ -81,6 +89,7 @@ const FeaturedProjects = () => {
               lg:text-6xl
 
               mb-6
+              lg:mb-4
 
               max-w-xl
             "

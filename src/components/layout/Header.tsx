@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { Link, useLocation } from "react-router"
 
 import {
   Menu,
@@ -13,6 +14,9 @@ import ThemeToggle from "../ui/ThemeToggle"
 import { navLinks } from "../../constants/navLinks"
 
 const Header = () => {
+  const location = useLocation()
+  const isHomePage = location.pathname === "/"
+
   const [isOpen, setIsOpen] =
     useState(false)
 
@@ -26,9 +30,16 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
 
-      const sections = navLinks.map((link) =>
-        document.querySelector(link.href)
-      )
+      if (!isHomePage) {
+        setActiveSection("")
+        return
+      }
+
+      const sections = navLinks
+        .filter((link) => link.sectionId)
+        .map((link) =>
+          document.getElementById(link.sectionId!)
+        )
 
       let currentSection = "#home"
 
@@ -66,7 +77,7 @@ const Header = () => {
         handleScroll
       )
     }
-  }, [])
+  }, [isHomePage])
 
   return (
     <header
@@ -141,8 +152,8 @@ const Header = () => {
           "
         >
           {/* Logo */}
-          <a
-            href="#home"
+          <Link
+            to="/#home"
             className="
               flex
               items-center
@@ -178,7 +189,7 @@ const Header = () => {
                 Kafley
               </span>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav
@@ -193,13 +204,15 @@ const Header = () => {
             "
           >
             {navLinks.map((link) => {
-              const isActive =
-                activeSection === link.href
+              const isActive = link.href === "/projects"
+                ? location.pathname.startsWith("/projects")
+                : isHomePage &&
+                  activeSection === `#${link.sectionId}`
 
               return (
-                <a
+                <Link
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   className={`
                     group
                     relative
@@ -265,7 +278,7 @@ const Header = () => {
                       }
                     `}
                   />
-                </a>
+                </Link>
               )
             })}
           </nav>
@@ -397,13 +410,15 @@ const Header = () => {
             <nav className="flex flex-col gap-3">
 
               {navLinks.map((link) => {
-                const isActive =
-                  activeSection === link.href
+                const isActive = link.href === "/projects"
+                  ? location.pathname.startsWith("/projects")
+                  : isHomePage &&
+                    activeSection === `#${link.sectionId}`
 
                 return (
-                  <a
+                  <Link
                     key={link.href}
-                    href={link.href}
+                    to={link.href}
                     onClick={() =>
                       setIsOpen(false)
                     }
@@ -470,7 +485,7 @@ const Header = () => {
                         pointer-events-none
                       "
                     />
-                  </a>
+                  </Link>
                 )
               })}
 

@@ -1,9 +1,11 @@
 import { motion } from "framer-motion"
+import { ArrowRight } from "lucide-react"
+import { Link } from "react-router"
 
 import Container from "../layout/Container"
 import ProjectCard from "../ui/ProjectCard"
 
-import { projects } from "../../data/projects"
+import { featuredProjects } from "../../data/projects"
 
 import {
   fadeUp,
@@ -143,13 +145,26 @@ const FeaturedProjects = () => {
           "
         >
 
-          {projects.map((project) => (
+          {featuredProjects.map((project) => (
             <ProjectCard
-              key={project.title}
+              key={project.id}
               project={project}
             />
           ))}
 
+        </motion.div>
+
+        <motion.div
+          {...fadeUp}
+          className="mt-10 flex justify-center lg:mt-12"
+        >
+          <Link
+            to="/projects"
+            className="button-outline inline-flex items-center gap-2"
+          >
+            View All Projects
+            <ArrowRight aria-hidden="true" size={18} />
+          </Link>
         </motion.div>
 
       </Container>

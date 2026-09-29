@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async"
 type SEOProps = {
   title: string
   description: string
+  path?: string
 }
 
 const siteUrl = "https://www.sunilkafley.com/"
@@ -13,7 +14,10 @@ const socialImageAlt =
 const SEO = ({
   title,
   description,
+  path = "/",
 }: SEOProps) => {
+  const canonicalUrl = new URL(path, siteUrl).toString()
+
   return (
     <Helmet>
 
@@ -25,14 +29,14 @@ const SEO = ({
         content={description}
       />
 
-      <link rel="canonical" href={siteUrl} />
+      <link rel="canonical" href={canonicalUrl} />
 
       {/* Open Graph */}
       <meta property="og:locale" content="en_NZ" />
 
       <meta property="og:site_name" content="Sunil Kafley" />
 
-      <meta property="og:url" content={siteUrl} />
+      <meta property="og:url" content={canonicalUrl} />
 
       <meta property="og:title" content={title} />
 

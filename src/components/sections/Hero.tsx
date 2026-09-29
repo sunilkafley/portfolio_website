@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion"
+import { Link } from "react-router"
 
 import { FaReact } from "react-icons/fa"
 
@@ -235,8 +236,8 @@ const Hero = () => {
                 lg:mb-3
               "
             >
-              <a
-                href="#projects"
+              <Link
+                to="/projects"
                 className="
                   button-primary
 
@@ -255,7 +256,7 @@ const Hero = () => {
                 View My Work
 
                 <HiArrowRight size={20} />
-              </a>
+              </Link>
 
               <a
                 href="/Sunil_Kafley_CV.pdf"

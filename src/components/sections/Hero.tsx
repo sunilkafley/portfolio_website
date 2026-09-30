@@ -198,7 +198,10 @@ const Hero = () => {
               lg:order-none lg:col-span-2 lg:col-start-1 lg:row-start-3
             "
           >
-            <span>Journey &amp; Experience</span>
+            <span className="text-xs font-semibold uppercase tracking-[0.16em]">
+              Learn More About
+            </span>
+            <span>My Journey &amp; Experience</span>
             <HiArrowDown aria-hidden="true" size={18} />
           </motion.a>
 

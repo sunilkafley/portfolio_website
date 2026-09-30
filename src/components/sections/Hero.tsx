@@ -133,7 +133,7 @@ const Hero = () => {
                 height={640}
                 fetchPriority="high"
                 className="
-                  relative z-10 h-auto w-full max-w-[600px] object-contain
+                  hero-portrait-blend relative z-10 h-auto w-full max-w-[600px] object-contain
                   lg:max-w-[520px] xl:max-w-[600px]
                 "
               />

@@ -197,6 +197,41 @@ html.lenis body {
       box-shadow 0.4s ease;
   }
 
+  .hero-portrait-blend {
+    -webkit-mask-image:
+      linear-gradient(
+        to bottom,
+        transparent 0%,
+        #000 8%,
+        #000 82%,
+        transparent 100%
+      ),
+      linear-gradient(
+        to right,
+        transparent 0%,
+        #000 14%,
+        #000 88%,
+        transparent 100%
+      );
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(
+        to bottom,
+        transparent 0%,
+        #000 8%,
+        #000 82%,
+        transparent 100%
+      ),
+      linear-gradient(
+        to right,
+        transparent 0%,
+        #000 14%,
+        #000 88%,
+        transparent 100%
+      );
+    mask-composite: intersect;
+  }
+
   .portrait-stage::before {
     width: min(78vw, 30rem);
     background:

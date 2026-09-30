@@ -4,14 +4,15 @@ import { Link } from "react-router"
 import { FaReact } from "react-icons/fa"
 import { SiJavascript, SiTypescript } from "react-icons/si"
 import {
+  HiArrowDown,
   HiArrowRight,
   HiEnvelope,
   HiMapPin,
 } from "react-icons/hi2"
 
-import profileImage from "../../assets/images/profile.webp"
-import profileImageSmall from "../../assets/images/profile-320.webp"
-import profileImageMedium from "../../assets/images/profile-640.webp"
+import profileImage from "../../assets/images/portrait-photo-960.webp"
+import profileImageSmall from "../../assets/images/portrait-photo-320.webp"
+import profileImageMedium from "../../assets/images/portrait-photo-640.webp"
 
 import SocialLinks from "../ui/SocialLinks"
 
@@ -21,8 +22,6 @@ import {
 } from "../../utils/motion"
 
 const Hero = () => {
-  const shouldReduceMotion = useReducedMotion()
-
   return (
     <section
       id="home"
@@ -34,7 +33,7 @@ const Hero = () => {
         <div
           className="
             grid grid-cols-1 items-center gap-x-12 gap-y-8
-            lg:grid-cols-2 lg:grid-rows-[1fr_auto] lg:gap-y-3
+            lg:grid-cols-2 lg:grid-rows-[1fr_auto_auto] lg:gap-y-3
             xl:gap-x-16
           "
         >
@@ -66,7 +65,8 @@ const Hero = () => {
               variants={itemFadeUp}
               className="mb-5 text-lg font-semibold text-(--color-text) sm:text-xl md:text-2xl lg:mb-3"
             >
-              Software Engineering Student &amp; Full-Stack Developer
+              <span className="block">Software Engineering Student</span>
+              <span className="block">&amp; Full-Stack Developer</span>
             </motion.h2>
 
             <motion.p
@@ -87,43 +87,31 @@ const Hero = () => {
 
             <motion.div
               variants={itemFadeUp}
-              className="mb-5 flex flex-col items-center justify-center gap-4 sm:flex-row lg:mb-4 lg:items-start lg:justify-start"
+              className="mb-4 flex flex-row flex-wrap items-center justify-center gap-3 lg:justify-start"
             >
               <Link
                 to="/projects"
-                className="button-primary flex w-full items-center justify-center gap-2 transition-all hover:-translate-y-1 sm:w-auto"
+                className="button-primary flex w-auto items-center justify-center gap-2 px-4 py-3 whitespace-nowrap transition-all hover:-translate-y-1"
               >
                 View My Work
                 <HiArrowRight aria-hidden="true" size={20} />
               </Link>
-            </motion.div>
 
-            <div className="flex flex-col items-center justify-center lg:flex-row lg:justify-start lg:gap-5">
-              <motion.a
-                variants={itemFadeUp}
+              <a
                 href="#contact"
-                className="inline-flex items-center gap-2 text-sm font-medium text-muted transition-colors hover:text-primary"
+                className="button-outline flex items-center justify-center gap-2 px-4 py-3 whitespace-nowrap transition-all hover:-translate-y-1"
               >
                 <HiEnvelope aria-hidden="true" size={18} />
-                Contact me
-              </motion.a>
+                Contact Me
+              </a>
+            </motion.div>
 
-              <motion.div
-                variants={itemFadeUp}
-                className="mt-5 flex justify-center lg:mt-0 lg:justify-start"
-              >
-                <SocialLinks />
-              </motion.div>
-            </div>
-
-            <motion.a
+            <motion.div
               variants={itemFadeUp}
-              href="#journey"
-              className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-muted transition-colors hover:text-primary"
+              className="flex justify-center lg:justify-start"
             >
-              Journey &amp; Experience
-              <HiArrowRight aria-hidden="true" size={16} />
-            </motion.a>
+              <SocialLinks />
+            </motion.div>
           </motion.div>
 
           <motion.div
@@ -135,25 +123,18 @@ const Hero = () => {
               lg:order-none lg:col-start-2 lg:row-start-1
             "
           >
-            <div className="portrait-stage relative flex items-center justify-center">
-              <motion.img
+            <div className="relative flex w-full items-center justify-center">
+              <img
                 src={profileImage}
-                srcSet={`${profileImageSmall} 320w, ${profileImageMedium} 640w, ${profileImage} 920w`}
-                sizes="(min-width: 1280px) 500px, (min-width: 1024px) 440px, (min-width: 768px) 380px, (min-width: 640px) 310px, 230px"
+                srcSet={`${profileImageSmall} 320w, ${profileImageMedium} 640w, ${profileImage} 960w`}
+                sizes="(min-width: 1280px) 600px, (min-width: 1024px) 520px, (min-width: 640px) 600px, calc(100vw - 32px)"
                 alt="Portrait of Sunil Kafley"
-                width={920}
-                height={725}
+                width={960}
+                height={640}
                 fetchPriority="high"
-                animate={shouldReduceMotion ? {} : { y: [0, -8, 0] }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
                 className="
-                  relative z-10 h-auto w-[230px] object-contain
-                  drop-shadow-[0_20px_80px_rgba(0,0,0,0.35)]
-                  sm:w-[310px] md:w-[380px] lg:w-[440px] xl:w-[500px]
+                  relative z-10 h-auto w-full max-w-[600px] object-contain
+                  lg:max-w-[520px] xl:max-w-[600px]
                 "
               />
 
@@ -206,27 +187,50 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
+          <motion.a
+            variants={itemFadeUp}
+            initial="hidden"
+            animate="show"
+            href="#journey"
+            className="
+              order-3 inline-flex flex-col items-center gap-1 justify-self-center
+              text-sm font-medium text-muted transition-colors hover:text-primary
+              lg:order-none lg:col-span-2 lg:col-start-1 lg:row-start-3
+            "
+          >
+            <span>Journey &amp; Experience</span>
+            <HiArrowDown aria-hidden="true" size={18} />
+          </motion.a>
+
           <motion.div
             variants={itemFadeUp}
             initial="hidden"
             animate="show"
             className="
-              order-3 flex w-full min-w-0 justify-center self-start
+              order-4 flex w-full min-w-0 justify-center self-start
               lg:order-none lg:col-start-2 lg:row-start-2 lg:self-center
             "
           >
             <div
               className="
-                availability-badge inline-flex w-full max-w-xl items-center justify-center gap-2 rounded-full
-                px-4 py-2 text-center text-xs font-semibold sm:w-auto sm:text-sm
+                availability-badge relative inline-flex w-full max-w-md items-center justify-center rounded-xl
+                px-3 py-2.5 text-center sm:w-auto sm:px-4
               "
             >
               <span
                 aria-hidden="true"
-                className="h-2 w-2 shrink-0 rounded-full bg-emerald-400 motion-safe:animate-pulse"
+                className="absolute left-3 h-2 w-2 shrink-0 rounded-full bg-emerald-400 motion-safe:animate-pulse"
               />
-              <span className="min-w-0">
-                Open to Internship, Graduate &amp; Junior Developer Opportunities
+              <span className="min-w-0 sm:pl-2">
+                <span className="block text-[11px] font-semibold uppercase tracking-[0.14em]">
+                  Open to
+                </span>
+                <span className="block whitespace-nowrap text-[11px] leading-snug sm:text-sm">
+                  <strong className="font-bold">
+                    Internship, Graduate &amp; Junior Developer
+                  </strong>{" "}
+                  Opportunities
+                </span>
               </span>
             </div>
           </motion.div>

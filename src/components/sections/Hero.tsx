@@ -10,9 +10,9 @@ import {
   HiMapPin,
 } from "react-icons/hi2"
 
-import profileImage from "../../assets/images/portrait-photo-960.webp"
-import profileImageSmall from "../../assets/images/portrait-photo-320.webp"
-import profileImageMedium from "../../assets/images/portrait-photo-640.webp"
+import portraitCutout from "../../assets/images/profile.webp"
+import portraitCutoutSmall from "../../assets/images/profile-320.webp"
+import portraitCutoutMedium from "../../assets/images/profile-640.webp"
 
 import SocialLinks from "../ui/SocialLinks"
 
@@ -22,6 +22,8 @@ import {
 } from "../../utils/motion"
 
 const Hero = () => {
+  const shouldReduceMotion = useReducedMotion()
+
   return (
     <section
       id="home"
@@ -33,7 +35,7 @@ const Hero = () => {
         <div
           className="
             grid grid-cols-1 items-center gap-x-12 gap-y-8
-            lg:grid-cols-2 lg:grid-rows-[1fr_auto_auto] lg:gap-y-3
+            lg:grid-cols-2 lg:grid-rows-[1fr_auto] lg:gap-y-3
             xl:gap-x-16
           "
         >
@@ -43,7 +45,7 @@ const Hero = () => {
             animate="show"
             className="
               order-2 mx-auto max-w-xl text-center
-              lg:order-none lg:col-start-1 lg:row-start-1 lg:row-span-2
+              lg:order-none lg:col-start-1 lg:row-start-1
               lg:mx-0 lg:text-left
             "
           >
@@ -63,7 +65,7 @@ const Hero = () => {
 
             <motion.h2
               variants={itemFadeUp}
-              className="mb-5 text-lg font-semibold text-(--color-text) sm:text-xl md:text-2xl lg:mb-3"
+              className="mb-5 text-lg leading-[1.45] font-semibold text-(--color-text) sm:text-xl md:text-2xl lg:mb-4"
             >
               <span className="block">Software Engineering Student</span>
               <span className="block">&amp; Full-Stack Developer</span>
@@ -71,7 +73,7 @@ const Hero = () => {
 
             <motion.p
               variants={itemFadeUp}
-              className="mx-auto mb-5 max-w-xl text-base leading-relaxed text-muted sm:text-lg lg:mx-0 lg:mb-3"
+              className="hero-description mx-auto mb-5 max-w-[52ch] text-base text-muted sm:text-lg lg:mx-0 lg:mb-4"
             >
               Building web and mobile applications with React, TypeScript,
               Python and modern software engineering practices.
@@ -81,7 +83,7 @@ const Hero = () => {
               variants={itemFadeUp}
               className="mb-5 inline-flex items-center gap-2 text-sm text-muted sm:text-base lg:mb-3"
             >
-              <HiMapPin aria-hidden="true" className="shrink-0 text-primary" />
+              <HiMapPin aria-hidden="true" className="h-5 w-5 shrink-0 text-(--hero-location-pin)" />
               <span>Christchurch, New Zealand</span>
             </motion.div>
 
@@ -108,8 +110,11 @@ const Hero = () => {
 
             <motion.div
               variants={itemFadeUp}
-              className="flex justify-center lg:justify-start"
+              className="flex flex-col items-center gap-2 lg:items-start"
             >
+              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
+                Let&apos;s Connect
+              </span>
               <SocialLinks />
             </motion.div>
           </motion.div>
@@ -123,47 +128,44 @@ const Hero = () => {
               lg:order-none lg:col-start-2 lg:row-start-1
             "
           >
-            <div className="relative flex w-full items-center justify-center">
+            <div className="portrait-stage relative grid w-full place-items-center">
               <img
-                src={profileImage}
-                srcSet={`${profileImageSmall} 320w, ${profileImageMedium} 640w, ${profileImage} 960w`}
-                sizes="(min-width: 1280px) 600px, (min-width: 1024px) 520px, (min-width: 640px) 600px, calc(100vw - 32px)"
+                src={portraitCutout}
+                srcSet={`${portraitCutoutSmall} 320w, ${portraitCutoutMedium} 640w, ${portraitCutout} 920w`}
+                sizes="(min-width: 1280px) 520px, (min-width: 1024px) 450px, (min-width: 640px) 520px, 86vw"
                 alt="Portrait of Sunil Kafley"
-                width={960}
-                height={640}
+                width={920}
+                height={725}
                 fetchPriority="high"
                 className="
-                  hero-portrait-blend relative z-10 h-auto w-full max-w-[600px] object-contain
-                  lg:max-w-[520px] xl:max-w-[600px]
+                  hero-portrait-image relative z-10 col-start-1 row-start-1 h-auto w-[min(86%,520px)] object-contain
+                  lg:w-[min(86%,450px)] xl:w-[min(86%,520px)]
                 "
               />
 
-              <div
-                className="
-                  absolute bottom-2 left-1/2 z-20 flex -translate-x-1/2 flex-row gap-2.5
-                  sm:bottom-0 sm:left-auto sm:right-0 sm:translate-x-0 sm:flex-col sm:gap-3
-                "
-              >
-                <FloatingIcon
-                  icon={<FaReact />}
-                  delay={0}
-                  colorClass="text-[#61DAFB]"
-                />
-                <FloatingIcon
-                  icon={<SiTypescript className="rounded-[2px] bg-white" />}
-                  delay={1}
-                  colorClass="text-[#3178C6]"
-                />
-                <FloatingIcon
-                  icon={<SiJavascript className="rounded-[2px] bg-[#111827]" />}
-                  delay={2}
-                  colorClass="text-[#F7DF1E]"
-                />
-                <FloatingIcon
-                  icon={<OfficialPythonIcon />}
-                  delay={3}
-                  colorClass="text-[#3776AB]"
-                />
+              <div className="portrait-icons z-20">
+                <div className="portrait-icon-rail">
+                  <FloatingIcon
+                    icon={<FaReact />}
+                    delay={0}
+                    colorClass="text-[#61DAFB]"
+                  />
+                  <FloatingIcon
+                    icon={<SiTypescript className="rounded-[2px] bg-white" />}
+                    delay={1}
+                    colorClass="text-[#3178C6]"
+                  />
+                  <FloatingIcon
+                    icon={<SiJavascript className="rounded-[2px] bg-[#111827]" />}
+                    delay={2}
+                    colorClass="text-[#F7DF1E]"
+                  />
+                  <FloatingIcon
+                    icon={<OfficialPythonIcon />}
+                    delay={3}
+                    colorClass="text-[#3776AB]"
+                  />
+                </div>
               </div>
             </div>
 
@@ -185,6 +187,21 @@ const Hero = () => {
                 </span>
               </span>
             </motion.div>
+
+            <div
+              className="availability-badge relative z-20 mt-2.5 grid max-w-full grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] items-center gap-x-2 gap-y-1 rounded-xl px-3 py-2 text-center"
+            >
+              <span
+                aria-hidden="true"
+                className="availability-dot h-3 w-3 rounded-full motion-safe:animate-pulse"
+              />
+              <span className="col-start-2 text-[10px] font-semibold uppercase tracking-[0.16em]">
+                Open to Opportunities
+              </span>
+              <span className="col-span-3 text-sm font-medium leading-snug text-(--hero-opportunity-text)">
+                Internship &middot; Graduate &middot; Junior Developer
+              </span>
+            </div>
           </motion.div>
 
           <motion.a
@@ -195,48 +212,23 @@ const Hero = () => {
             className="
               order-3 inline-flex flex-col items-center gap-1 justify-self-center
               text-sm font-medium text-muted transition-colors hover:text-primary
-              lg:order-none lg:col-span-2 lg:col-start-1 lg:row-start-3
+              lg:order-none lg:col-span-2 lg:col-start-1 lg:row-start-2
             "
           >
-            <span className="text-xs font-semibold uppercase tracking-[0.16em]">
+            <span className="text-[10px] font-semibold uppercase tracking-[0.18em]">
               Learn More About
             </span>
-            <span>My Journey &amp; Experience</span>
-            <HiArrowDown aria-hidden="true" size={18} />
-          </motion.a>
-
-          <motion.div
-            variants={itemFadeUp}
-            initial="hidden"
-            animate="show"
-            className="
-              order-4 flex w-full min-w-0 justify-center self-start
-              lg:order-none lg:col-start-2 lg:row-start-2 lg:self-center
-            "
-          >
-            <div
-              className="
-                availability-badge relative inline-flex w-full max-w-md items-center justify-center rounded-xl
-                px-3 py-2.5 text-center sm:w-auto sm:px-4
-              "
+            <span className="font-semibold text-(--color-text)/80">
+              My Journey &amp; Experience
+            </span>
+            <motion.span
+              aria-hidden="true"
+              animate={shouldReduceMotion ? {} : { y: [0, 3, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             >
-              <span
-                aria-hidden="true"
-                className="absolute left-3 h-2 w-2 shrink-0 rounded-full bg-emerald-400 motion-safe:animate-pulse"
-              />
-              <span className="min-w-0 sm:pl-2">
-                <span className="block text-[11px] font-semibold uppercase tracking-[0.14em]">
-                  Open to
-                </span>
-                <span className="block whitespace-nowrap text-[11px] leading-snug sm:text-sm">
-                  <strong className="font-bold">
-                    Internship, Graduate &amp; Junior Developer
-                  </strong>{" "}
-                  Opportunities
-                </span>
-              </span>
-            </div>
-          </motion.div>
+              <HiArrowDown size={18} />
+            </motion.span>
+          </motion.a>
         </div>
       </div>
     </section>
@@ -285,7 +277,7 @@ const FloatingIcon = ({
 
   return (
     <motion.div
-      animate={shouldReduceMotion ? {} : { y: [0, 12, 0] }}
+      animate={shouldReduceMotion ? {} : { y: [0, 4, 0] }}
       transition={{
         duration: 4,
         repeat: Infinity,
@@ -295,10 +287,9 @@ const FloatingIcon = ({
       whileHover={{ scale: 1.08, rotate: 6 }}
       aria-hidden="true"
       className={`
-        flex h-12 w-12 items-center justify-center rounded-2xl
+        pointer-events-auto flex aspect-square w-full items-center justify-center rounded-[25%]
         border border-(--color-border) bg-(--color-surface)
-        text-xl shadow-lg backdrop-blur-md transition-all
-        sm:h-14 sm:w-14 sm:text-2xl md:h-16 md:w-16
+        text-[clamp(0.75rem,1.7vw,1.375rem)] shadow-lg backdrop-blur-md transition-all
         ${colorClass}
       `}
     >

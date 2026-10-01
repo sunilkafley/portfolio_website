@@ -87,6 +87,21 @@ const Hero = () => {
               <span>Christchurch, New Zealand</span>
             </motion.div>
 
+            <div
+              className="availability-badge mx-auto mb-4 grid w-fit max-w-full grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] items-center gap-x-2 gap-y-1 rounded-xl px-3 py-2 text-center lg:mx-0"
+            >
+              <span
+                aria-hidden="true"
+                className="availability-dot h-3 w-3 rounded-full motion-safe:animate-pulse"
+              />
+              <span className="col-start-2 text-[11px] font-semibold tracking-[0.08em]">
+                Available for
+              </span>
+              <span className="col-span-3 text-sm font-medium leading-snug text-(--hero-opportunity-text)">
+                Internship &middot; Graduate &middot; Junior Developer
+              </span>
+            </div>
+
             <motion.div
               variants={itemFadeUp}
               className="mb-4 flex flex-row flex-wrap items-center justify-center gap-3 lg:justify-start"
@@ -188,20 +203,6 @@ const Hero = () => {
               </span>
             </motion.div>
 
-            <div
-              className="availability-badge relative z-20 mt-2.5 grid max-w-full grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] items-center gap-x-2 gap-y-1 rounded-xl px-3 py-2 text-center"
-            >
-              <span
-                aria-hidden="true"
-                className="availability-dot h-3 w-3 rounded-full motion-safe:animate-pulse"
-              />
-              <span className="col-start-2 text-[10px] font-semibold uppercase tracking-[0.16em]">
-                Open to Opportunities
-              </span>
-              <span className="col-span-3 text-sm font-medium leading-snug text-(--hero-opportunity-text)">
-                Internship &middot; Graduate &middot; Junior Developer
-              </span>
-            </div>
           </motion.div>
 
           <motion.a
@@ -215,7 +216,7 @@ const Hero = () => {
               lg:order-none lg:col-span-2 lg:col-start-1 lg:row-start-2
             "
           >
-            <span className="text-[10px] font-semibold uppercase tracking-[0.18em]">
+            <span className="text-[10px] font-semibold tracking-[0.08em]">
               Learn More About
             </span>
             <span className="font-semibold text-(--color-text)/80">

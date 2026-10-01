@@ -158,6 +158,12 @@ p {
   text-wrap: pretty;
 }
 
+@media (max-width: 639px) {
+  #home .hero-description {
+    line-height: 1.7;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -247,15 +253,31 @@ html.lenis body {
     width: auto;
   }
 
-  .portrait-icon-rail {
+  /* Follow the circle's right-hand arc without replacing the floating transform. */
+  .portrait-icon-slot {
     position: absolute;
-    top: 50%;
-    right: 14%;
     width: 13%;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    transform: translateY(-50%);
+    transform: translate(-50%, -50%);
+  }
+
+  .portrait-icon-slot:nth-child(1) {
+    left: 75%;
+    top: 23%;
+  }
+
+  .portrait-icon-slot:nth-child(2) {
+    left: 86%;
+    top: 40%;
+  }
+
+  .portrait-icon-slot:nth-child(3) {
+    left: 86%;
+    top: 60%;
+  }
+
+  .portrait-icon-slot:nth-child(4) {
+    left: 75%;
+    top: 77%;
   }
 
   .portrait-stage::after {
@@ -381,6 +403,22 @@ html.lenis body {
     background: var(--color-surface);
 
     transform: translateY(-2px);
+  }
+
+  .button-outline.hero-contact-button {
+    border-color: color-mix(in srgb, var(--availability-dot) 60%, transparent);
+    background: var(--availability-bg);
+    color: var(--availability-text);
+  }
+
+  .button-outline.hero-contact-button:hover {
+    border-color: var(--availability-dot);
+    background: color-mix(in srgb, var(--availability-dot) 18%, var(--color-background));
+  }
+
+  .button-outline.hero-contact-button:focus-visible {
+    outline: 2px solid var(--availability-dot);
+    outline-offset: 3px;
   }
 
   /* Typography */

@@ -4,7 +4,6 @@ import { Link } from "react-router"
 import { FaReact } from "react-icons/fa"
 import { SiJavascript, SiTypescript } from "react-icons/si"
 import {
-  HiArrowDown,
   HiArrowRight,
   HiEnvelope,
   HiMapPin,
@@ -22,20 +21,18 @@ import {
 } from "../../utils/motion"
 
 const Hero = () => {
-  const shouldReduceMotion = useReducedMotion()
-
   return (
     <section
       id="home"
-      className="relative flex items-start overflow-hidden pt-24 pb-8 sm:pb-10 lg:pb-8"
+      className="relative flex items-start overflow-hidden pt-24 pb-8 sm:pb-10 lg:pt-22 lg:pb-4"
     >
       <div className="hero-grid absolute inset-0 -z-10" />
 
       <div className="container-custom">
         <div
           className="
-            grid grid-cols-1 items-center gap-x-12 gap-y-8
-            lg:grid-cols-2 lg:grid-rows-[1fr_auto] lg:gap-y-3
+            grid grid-cols-1 items-center gap-x-12 gap-y-5 sm:gap-y-8
+            lg:grid-cols-2 lg:gap-y-0
             xl:gap-x-16
           "
         >
@@ -51,21 +48,21 @@ const Hero = () => {
           >
             <motion.p
               variants={itemFadeUp}
-              className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-primary sm:text-base lg:mb-3"
+              className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-primary sm:mb-4 sm:text-base lg:mb-2"
             >
               Kia Ora, I&apos;m
             </motion.p>
 
             <motion.h1
               variants={itemFadeUp}
-              className="mb-4 text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:mb-3 xl:text-7xl"
+              className="mb-2 text-4xl font-bold leading-tight sm:mb-4 sm:text-5xl md:text-6xl lg:mb-2 xl:text-7xl"
             >
               Sunil <span className="heading-gradient">Kafley</span>
             </motion.h1>
 
             <motion.h2
               variants={itemFadeUp}
-              className="mb-5 text-lg leading-[1.45] font-semibold text-(--color-text) sm:text-xl md:text-2xl lg:mb-4"
+              className="mb-3 text-lg leading-[1.45] font-semibold text-(--color-text) sm:mb-5 sm:text-xl md:text-2xl lg:mb-3"
             >
               <span className="block">Software Engineering Student</span>
               <span className="block">&amp; Full-Stack Developer</span>
@@ -73,7 +70,7 @@ const Hero = () => {
 
             <motion.p
               variants={itemFadeUp}
-              className="hero-description mx-auto mb-5 max-w-[52ch] text-base text-muted sm:text-lg lg:mx-0 lg:mb-4"
+              className="hero-description mx-auto mb-3 max-w-[52ch] text-base text-muted sm:mb-5 sm:text-lg lg:mx-0 lg:mb-3"
             >
               Building web and mobile applications with React, TypeScript,
               Python and modern software engineering practices.
@@ -81,32 +78,30 @@ const Hero = () => {
 
             <motion.div
               variants={itemFadeUp}
-              className="mb-5 inline-flex items-center gap-2 text-sm text-muted sm:text-base lg:mb-3"
+              className="mb-3 inline-flex items-center gap-2 text-sm text-muted sm:mb-5 sm:text-base lg:mb-2"
             >
               <HiMapPin aria-hidden="true" className="h-5 w-5 shrink-0 text-(--hero-location-pin)" />
               <span>Christchurch, New Zealand</span>
             </motion.div>
 
             <div
-              className="availability-badge mx-auto mb-4 flex w-fit max-w-full items-center gap-2 rounded-xl px-3 py-2 text-left lg:mx-0"
+              className="availability-badge mx-auto mb-3 grid w-fit max-w-full grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] items-center gap-x-2 gap-y-1 rounded-xl px-3 py-2 text-center sm:mb-4 sm:flex sm:gap-2 sm:text-left lg:mx-0 lg:mb-3"
             >
               <span
                 aria-hidden="true"
                 className="availability-dot h-3 w-3 shrink-0 rounded-full motion-safe:animate-pulse"
               />
-              <span className="min-w-0 text-sm leading-snug">
-                <span className="font-semibold text-[11px] tracking-[0.08em] whitespace-nowrap">
-                  Available for
-                </span>{" "}
-                <span className="font-medium text-(--hero-opportunity-text)">
-                  Internship &middot; Graduate &middot; Junior Developer
-                </span>
+              <span className="col-start-2 text-[11px] font-semibold tracking-[0.08em] whitespace-nowrap">
+                Available for
+              </span>
+              <span className="col-span-3 text-sm font-medium leading-snug text-(--hero-opportunity-text)">
+                Internship &middot; Graduate &middot; Junior Developer
               </span>
             </div>
 
             <motion.div
               variants={itemFadeUp}
-              className="mb-4 flex flex-row flex-wrap items-center justify-center gap-3 lg:justify-start"
+              className="mb-6 flex flex-row flex-wrap items-center justify-center gap-3 lg:mb-4 lg:justify-start"
             >
               <Link
                 to="/projects"
@@ -118,7 +113,7 @@ const Hero = () => {
 
               <a
                 href="#contact"
-                className="button-outline flex items-center justify-center gap-2 px-4 py-3 whitespace-nowrap transition-all hover:-translate-y-1"
+                className="button-outline hero-contact-button flex items-center justify-center gap-2 px-4 py-3 whitespace-nowrap transition-all hover:-translate-y-1"
               >
                 <HiEnvelope aria-hidden="true" size={18} />
                 Contact Me
@@ -127,7 +122,7 @@ const Hero = () => {
 
             <motion.div
               variants={itemFadeUp}
-              className="flex flex-col items-center gap-2 lg:items-start"
+              className="flex flex-col items-center gap-3 lg:items-start lg:gap-2"
             >
               <span className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                 Let&apos;s Connect
@@ -149,47 +144,45 @@ const Hero = () => {
               <img
                 src={portraitCutout}
                 srcSet={`${portraitCutoutSmall} 320w, ${portraitCutoutMedium} 640w, ${portraitCutout} 920w`}
-                sizes="(min-width: 1280px) 520px, (min-width: 1024px) 450px, (min-width: 640px) 520px, 86vw"
+                sizes="(min-width: 1280px) 520px, (min-width: 1024px) 450px, (min-width: 640px) 520px, 200px"
                 alt="Portrait of Sunil Kafley"
                 width={920}
                 height={725}
                 fetchPriority="high"
                 className="
-                  hero-portrait-image relative z-10 col-start-1 row-start-1 h-auto w-[min(86%,520px)] object-contain
+                  hero-portrait-image relative z-10 col-start-1 row-start-1 h-auto w-[min(62%,200px)] object-contain sm:w-[min(86%,520px)]
                   lg:w-[min(86%,450px)] xl:w-[min(86%,520px)]
                 "
               />
 
               <div className="portrait-icons z-20">
-                <div className="portrait-icon-rail">
-                  <FloatingIcon
-                    icon={<FaReact />}
-                    delay={0}
-                    colorClass="text-[#61DAFB]"
-                  />
-                  <FloatingIcon
-                    icon={<SiTypescript className="rounded-[2px] bg-white" />}
-                    delay={1}
-                    colorClass="text-[#3178C6]"
-                  />
-                  <FloatingIcon
-                    icon={<SiJavascript className="rounded-[2px] bg-[#111827]" />}
-                    delay={2}
-                    colorClass="text-[#F7DF1E]"
-                  />
-                  <FloatingIcon
-                    icon={<OfficialPythonIcon />}
-                    delay={3}
-                    colorClass="text-[#3776AB]"
-                  />
-                </div>
+                <FloatingIcon
+                  icon={<FaReact />}
+                  delay={0}
+                  colorClass="text-[#61DAFB]"
+                />
+                <FloatingIcon
+                  icon={<SiTypescript className="rounded-[2px] bg-white" />}
+                  delay={1}
+                  colorClass="text-[#3178C6]"
+                />
+                <FloatingIcon
+                  icon={<SiJavascript className="rounded-[2px] bg-[#111827]" />}
+                  delay={2}
+                  colorClass="text-[#F7DF1E]"
+                />
+                <FloatingIcon
+                  icon={<OfficialPythonIcon />}
+                  delay={3}
+                  colorClass="text-[#3776AB]"
+                />
               </div>
             </div>
 
             <motion.div
               variants={itemFadeUp}
               className="
-                relative z-20 mt-3 inline-flex items-center gap-3 rounded-xl
+                relative z-20 mt-2 inline-flex items-center gap-3 rounded-xl sm:mt-3
                 border border-(--color-border) bg-(--color-surface)/80
                 px-4 py-2.5 text-left backdrop-blur-md
               "
@@ -207,31 +200,6 @@ const Hero = () => {
 
           </motion.div>
 
-          <motion.a
-            variants={itemFadeUp}
-            initial="hidden"
-            animate="show"
-            href="#journey"
-            className="
-              order-3 inline-flex flex-col items-center gap-1 justify-self-center
-              text-sm font-medium text-muted transition-colors hover:text-primary
-              lg:order-none lg:col-span-2 lg:col-start-1 lg:row-start-2
-            "
-          >
-            <span className="text-[10px] font-semibold tracking-[0.08em]">
-              Learn More About
-            </span>
-            <span className="font-semibold text-(--color-text)/80">
-              My Journey &amp; Experience
-            </span>
-            <motion.span
-              aria-hidden="true"
-              animate={shouldReduceMotion ? {} : { y: [0, 3, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <HiArrowDown size={18} />
-            </motion.span>
-          </motion.a>
         </div>
       </div>
     </section>
@@ -279,25 +247,27 @@ const FloatingIcon = ({
   const shouldReduceMotion = useReducedMotion()
 
   return (
-    <motion.div
-      animate={shouldReduceMotion ? {} : { y: [0, 4, 0] }}
-      transition={{
-        duration: 4,
-        repeat: Infinity,
-        delay,
-        ease: "easeInOut",
-      }}
-      whileHover={{ scale: 1.08, rotate: 6 }}
-      aria-hidden="true"
-      className={`
-        pointer-events-auto flex aspect-square w-full items-center justify-center rounded-[25%]
-        border border-(--color-border) bg-(--color-surface)
-        text-[clamp(0.75rem,1.7vw,1.375rem)] shadow-lg backdrop-blur-md transition-all
-        ${colorClass}
-      `}
-    >
-      {icon}
-    </motion.div>
+    <div className="portrait-icon-slot">
+      <motion.div
+        animate={shouldReduceMotion ? {} : { y: [0, 4, 0] }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          delay,
+          ease: "easeInOut",
+        }}
+        whileHover={{ scale: 1.08, rotate: 6 }}
+        aria-hidden="true"
+        className={`
+          pointer-events-auto flex aspect-square w-full items-center justify-center rounded-[25%]
+          border border-(--color-border) bg-(--color-surface)
+          text-[clamp(0.75rem,1.7vw,1.375rem)] shadow-lg backdrop-blur-md transition-all
+          ${colorClass}
+        `}
+      >
+        {icon}
+      </motion.div>
+    </div>
   )
 }
 

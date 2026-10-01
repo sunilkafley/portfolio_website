@@ -22,7 +22,7 @@ const FeaturedProjects = () => {
 
         pt-6
         sm:pt-8
-        lg:pt-6
+        lg:pt-4
 
         pb-16
         sm:pb-20
@@ -48,12 +48,12 @@ const FeaturedProjects = () => {
         "
       />
 
-      <Container>
+      <Container className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_auto] lg:gap-x-6">
 
         {/* Section Intro */}
         <motion.div
           {...fadeUp}
-          className="max-w-3xl mb-8 lg:mb-6"
+          className="mb-8 max-w-3xl lg:col-start-1 lg:row-start-1 lg:mb-4"
         >
 
           {/* Badge */}
@@ -74,6 +74,8 @@ const FeaturedProjects = () => {
               text-sm
 
               mb-4
+              lg:mb-2
+              lg:py-1.5
             "
           >
             🚀 Featured Work
@@ -87,9 +89,10 @@ const FeaturedProjects = () => {
 
               text-4xl
               sm:text-5xl
-              lg:text-5xl
+              lg:text-4xl
 
               mb-4
+              lg:mb-2
 
               max-w-xl
             "
@@ -107,6 +110,7 @@ const FeaturedProjects = () => {
 
               text-base
               sm:text-lg
+              lg:text-base
 
               leading-relaxed
 
@@ -133,6 +137,9 @@ const FeaturedProjects = () => {
 
           className="
             grid
+            order-2
+            lg:col-span-2
+            lg:row-start-2
 
             grid-cols-1
             md:grid-cols-2
@@ -155,7 +162,7 @@ const FeaturedProjects = () => {
 
         <motion.div
           {...fadeUp}
-          className="mt-8 flex justify-center lg:mt-9"
+          className="order-3 mt-8 flex justify-center lg:order-none lg:col-start-2 lg:row-start-1 lg:mb-4 lg:mt-0 lg:items-end lg:justify-end"
         >
           <Link
             to="/projects"

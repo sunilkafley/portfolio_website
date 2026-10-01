@@ -3,6 +3,7 @@ import {
   Code2,
   GraduationCap,
   CheckCircle2,
+  ArrowDown,
 } from "lucide-react"
 
 import Container from "../layout/Container"
@@ -253,6 +254,20 @@ const About = () => {
           </motion.div>
 
         </div>
+
+        <motion.a
+          {...fadeUp}
+          href="#journey"
+          className="mt-14 flex flex-col items-center gap-1 text-sm font-medium text-muted transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary lg:mt-16"
+        >
+          <span className="text-[10px] font-semibold tracking-[0.08em]">
+            Learn More About
+          </span>
+          <span className="font-semibold text-(--color-text)/80">
+            My Journey &amp; Experience
+          </span>
+          <ArrowDown aria-hidden="true" size={18} />
+        </motion.a>
 
       </Container>
 

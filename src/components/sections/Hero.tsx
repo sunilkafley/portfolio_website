@@ -1,531 +1,207 @@
 import { motion, useReducedMotion } from "framer-motion"
+import { Link } from "react-router"
 
 import { FaReact } from "react-icons/fa"
-
+import { SiJavascript, SiTypescript } from "react-icons/si"
 import {
-  SiTypescript,
-  SiJavascript,
-} from "react-icons/si"
-
-import {
-  HiArrowDownTray,
   HiArrowRight,
   HiEnvelope,
   HiMapPin,
 } from "react-icons/hi2"
 
-import profileImage from "../../assets/images/profile.webp"
-import profileImageSmall from "../../assets/images/profile-320.webp"
-import profileImageMedium from "../../assets/images/profile-640.webp"
+import portraitCutout from "../../assets/images/profile.webp"
+import portraitCutoutSmall from "../../assets/images/profile-320.webp"
+import portraitCutoutMedium from "../../assets/images/profile-640.webp"
 
 import SocialLinks from "../ui/SocialLinks"
 
 import {
-  staggerContainer,
   itemFadeUp,
+  staggerContainer,
 } from "../../utils/motion"
 
 const Hero = () => {
-  const shouldReduceMotion = useReducedMotion()
-
   return (
     <section
       id="home"
-      className="
-        relative
-        overflow-hidden
-
-        flex
-        items-start
-
-        pt-24
-
-        pb-10
-        sm:pb-12
-        lg:pb-10
-      "
+      className="relative flex items-start overflow-hidden pt-24 pb-8 sm:pb-10 lg:pt-22 lg:pb-4"
     >
-      {/* Background Grid */}
-      <div
-        className="
-          hero-grid
-
-          absolute
-          inset-0
-          -z-10
-        "
-      />
+      <div className="hero-grid absolute inset-0 -z-10" />
 
       <div className="container-custom">
         <div
           className="
-            grid
-            grid-cols-1
-            lg:grid-cols-2
-
-            gap-14
-            lg:gap-12
-            xl:gap-16
-
-            items-center
+            grid grid-cols-1 items-center gap-x-12 gap-y-5 sm:gap-y-8
+            lg:grid-cols-2 lg:gap-y-0
+            xl:gap-x-16
           "
         >
-          {/* LEFT CONTENT */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="show"
             className="
-              order-1
-
-              text-center
-              lg:text-left
-
-              max-w-xl
-              mx-auto
-              lg:mx-0
+              order-2 mx-auto max-w-xl text-center
+              lg:order-none lg:col-start-1 lg:row-start-1
+              lg:mx-0 lg:text-left
             "
           >
-            {/* Greeting */}
             <motion.p
               variants={itemFadeUp}
-              className="
-                text-sm
-                sm:text-base
-                font-semibold
-                tracking-[0.16em]
-                uppercase
-                text-primary
-
-                mb-4
-                lg:mb-3
-              "
+              className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-primary sm:mb-4 sm:text-base lg:mb-2"
             >
               Kia Ora, I&apos;m
             </motion.p>
 
-            {/* Title */}
             <motion.h1
               variants={itemFadeUp}
-              className="
-                font-bold
-                leading-tight
-
-                text-4xl
-                sm:text-5xl
-                md:text-6xl
-                xl:text-7xl
-
-                mb-4
-                lg:mb-3
-              "
+              className="mb-2 text-4xl font-bold leading-tight sm:mb-4 sm:text-5xl md:text-6xl lg:mb-2 xl:text-7xl"
             >
-              Sunil{" "}
-              <span className="heading-gradient">
-                Kafley
-              </span>
+              Sunil <span className="heading-gradient">Kafley</span>
             </motion.h1>
 
-            {/* Subtitle */}
             <motion.h2
               variants={itemFadeUp}
-              className="
-                text-lg
-                sm:text-xl
-                md:text-2xl
-
-                font-semibold
-                text-(--color-text)
-
-                mb-5
-                lg:mb-3
-              "
+              className="mb-3 text-lg leading-[1.45] font-semibold text-(--color-text) sm:mb-5 sm:text-xl md:text-2xl lg:mb-3"
             >
-              Software Engineering Student &amp; Full-Stack Developer
+              <span className="block">Software Engineering Student</span>
+              <span className="block">&amp; Full-Stack Developer</span>
             </motion.h2>
 
-            {/* Value proposition */}
             <motion.p
               variants={itemFadeUp}
-              className="
-                text-base
-                sm:text-lg
-                leading-relaxed
-                text-muted
-                max-w-xl
-                mx-auto
-                lg:mx-0
-                mb-5
-                lg:mb-3
-              "
+              className="hero-description mx-auto mb-3 max-w-[52ch] text-base text-muted sm:mb-5 sm:text-lg lg:mx-0 lg:mb-3"
             >
               Building web and mobile applications with React, TypeScript,
               Python and modern software engineering practices.
             </motion.p>
 
-            {/* Location */}
             <motion.div
               variants={itemFadeUp}
-              className="
-                inline-flex
-                items-center
-                gap-2
-                text-sm
-                sm:text-base
-                text-muted
-                mb-5
-                lg:mb-3
-              "
+              className="mb-3 inline-flex items-center gap-2 text-sm text-muted sm:mb-5 sm:text-base lg:mb-2"
             >
-              <HiMapPin aria-hidden="true" className="shrink-0 text-primary" />
+              <HiMapPin aria-hidden="true" className="h-5 w-5 shrink-0 text-(--hero-location-pin)" />
               <span>Christchurch, New Zealand</span>
             </motion.div>
 
-            {/* Availability */}
+            <div
+              className="availability-badge mx-auto mb-3 grid w-fit max-w-full grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] items-center gap-x-2 gap-y-1 rounded-xl px-3 py-2 text-center sm:mb-4 sm:flex sm:gap-2 sm:text-left lg:mx-0 lg:mb-3"
+            >
+              <span
+                aria-hidden="true"
+                className="availability-dot h-3 w-3 shrink-0 rounded-full motion-safe:animate-pulse"
+              />
+              <span className="col-start-2 text-[11px] font-semibold tracking-[0.08em] whitespace-nowrap">
+                Available for
+              </span>
+              <span className="col-span-3 text-sm font-medium leading-snug text-(--hero-opportunity-text)">
+                Internship &middot; Graduate &middot; Junior Developer
+              </span>
+            </div>
+
             <motion.div
               variants={itemFadeUp}
-              className="
-                flex
-                justify-center
-                lg:justify-start
-                mb-8
-                lg:mb-5
-              "
+              className="mb-6 flex flex-row flex-wrap items-center justify-center gap-3 lg:mb-4 lg:justify-start"
             >
-              <div
-                className="
-                  inline-flex
-                  items-center
-                  gap-2
-                  px-4
-                  py-2
-                  rounded-full
-                  availability-badge
-                  text-sm
-                  font-semibold
-                "
-              >
-                <span
-                  aria-hidden="true"
-                  className="h-2 w-2 shrink-0 rounded-full bg-emerald-400 motion-safe:animate-pulse"
-                />
-                <span>
-                  Open to Internship, Graduate &amp; Junior Developer Opportunities
-                </span>
-              </div>
-            </motion.div>
-
-            {/* Buttons */}
-            <motion.div
-              variants={itemFadeUp}
-              className="
-                flex
-                flex-col
-                sm:flex-row
-
-                items-center
-                lg:items-start
-
-                justify-center
-                lg:justify-start
-
-                gap-4
-
-                mb-5
-                lg:mb-3
-              "
-            >
-              <a
-                href="#projects"
-                className="
-                  button-primary
-
-                  flex
-                  items-center
-                  justify-center
-                  gap-2
-
-                  w-full
-                  sm:w-auto
-
-                  transition-all
-                  hover:-translate-y-1
-                "
+              <Link
+                to="/projects"
+                className="button-primary flex w-auto items-center justify-center gap-2 px-4 py-3 whitespace-nowrap transition-all hover:-translate-y-1"
               >
                 View My Work
-
-                <HiArrowRight size={20} />
-              </a>
+                <HiArrowRight aria-hidden="true" size={20} />
+              </Link>
 
               <a
-                href="/Sunil_Kafley_CV.pdf"
-                download="Sunil_Kafley_CV.pdf"
-                className="
-                  button-outline
-
-                  flex
-                  items-center
-                  justify-center
-                  gap-2
-
-                  w-full
-                  sm:w-auto
-
-                  transition-all
-                  hover:-translate-y-1
-                "
+                href="#contact"
+                className="button-outline hero-contact-button flex items-center justify-center gap-2 px-4 py-3 whitespace-nowrap transition-all hover:-translate-y-1"
               >
-                Download CV
-
-                <HiArrowDownTray aria-hidden="true" size={20} />
+                <HiEnvelope aria-hidden="true" size={18} />
+                Contact Me
               </a>
             </motion.div>
 
-            <div
-              className="
-                flex
-                flex-col
-                lg:flex-row
-                items-center
-                justify-center
-                lg:justify-start
-                lg:gap-5
-              "
+            <motion.div
+              variants={itemFadeUp}
+              className="flex flex-col items-center gap-3 lg:items-start lg:gap-2"
             >
-              {/* Contact link */}
-              <motion.a
-                variants={itemFadeUp}
-                href="#contact"
-                className="
-                  inline-flex
-                  items-center
-                  gap-2
-                  text-sm
-                  font-medium
-                  text-muted
-                  hover:text-primary
-                  transition-colors
-                "
-              >
-                <HiEnvelope aria-hidden="true" size={18} />
-                Contact me
-              </motion.a>
-
-              {/* Social Links */}
-              <motion.div
-                variants={itemFadeUp}
-                className="
-                  flex
-                  justify-center
-                  lg:justify-start
-
-                  mt-6
-                  lg:mt-0
-                "
-              >
-                <SocialLinks />
-              </motion.div>
-            </div>
+              <span className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
+                Let&apos;s Connect
+              </span>
+              <SocialLinks />
+            </motion.div>
           </motion.div>
 
-          {/* RIGHT CONTENT */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="show"
             className="
-              portrait-stage
-
-              order-2
-
-              relative
-
-              flex
-              items-center
-              justify-center
+              order-1 flex flex-col items-center justify-center
+              lg:order-none lg:col-start-2 lg:row-start-1
             "
           >
-            {/* Profile Image */}
-            <motion.img
-              src={profileImage}
-              srcSet={`${profileImageSmall} 320w, ${profileImageMedium} 640w, ${profileImage} 920w`}
-              sizes="(min-width: 1280px) 560px, (min-width: 1024px) 500px, (min-width: 768px) 420px, (min-width: 640px) 340px, 260px"
-              alt="Portrait of Sunil Kafley"
-              width={920}
-              height={725}
-              fetchPriority="high"
-              animate={
-                shouldReduceMotion
-                  ? {}
-                  : { y: [0, -10, 0] }
-              }
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="
-                relative
-                z-10
-
-                w-[260px]
-                sm:w-[340px]
-                md:w-[420px]
-                lg:w-[500px]
-                xl:w-[560px]
-
-                h-auto
-                object-contain
-
-                drop-shadow-[0_20px_80px_rgba(0,0,0,0.35)]
-              "
-            />
-
-            {/* Floating Icons */}
-            <div
-              className="
-                absolute
-
-                bottom-4
-                sm:bottom-0
-
-                left-1/2
-                -translate-x-1/2
-
-                sm:left-auto
-                sm:right-2
-                sm:translate-x-0
-
-                lg:right-0
-
-                flex
-                flex-row
-                sm:flex-col
-
-                gap-3
-                sm:gap-4
-
-                z-20
-              "
-            >
-              <FloatingIcon
-                icon={<FaReact />}
-                delay={0}
-                colorClass="text-[#61DAFB]"
+            <div className="portrait-stage relative grid w-full place-items-center">
+              <img
+                src={portraitCutout}
+                srcSet={`${portraitCutoutSmall} 320w, ${portraitCutoutMedium} 640w, ${portraitCutout} 920w`}
+                sizes="(min-width: 1280px) 520px, (min-width: 1024px) 450px, (min-width: 640px) 520px, 200px"
+                alt="Portrait of Sunil Kafley"
+                width={920}
+                height={725}
+                fetchPriority="high"
+                className="
+                  hero-portrait-image relative z-10 col-start-1 row-start-1 h-auto w-[min(62%,200px)] object-contain sm:w-[min(86%,520px)]
+                  lg:w-[min(86%,450px)] xl:w-[min(86%,520px)]
+                "
               />
 
-              <FloatingIcon
-                icon={(
-                  <SiTypescript className="rounded-[2px] bg-white" />
-                )}
-                delay={1}
-                colorClass="text-[#3178C6]"
-              />
-
-              <FloatingIcon
-                icon={(
-                  <SiJavascript className="rounded-[2px] bg-[#111827]" />
-                )}
-                delay={2}
-                colorClass="text-[#F7DF1E]"
-              />
-
-              <FloatingIcon
-                icon={<OfficialPythonIcon />}
-                delay={3}
-                colorClass="text-[#3776AB]"
-              />
+              <div className="portrait-icons z-20">
+                <FloatingIcon
+                  icon={<FaReact />}
+                  delay={0}
+                  colorClass="text-[#61DAFB]"
+                />
+                <FloatingIcon
+                  icon={<SiTypescript className="rounded-[2px] bg-white" />}
+                  delay={1}
+                  colorClass="text-[#3178C6]"
+                />
+                <FloatingIcon
+                  icon={<SiJavascript className="rounded-[2px] bg-[#111827]" />}
+                  delay={2}
+                  colorClass="text-[#F7DF1E]"
+                />
+                <FloatingIcon
+                  icon={<OfficialPythonIcon />}
+                  delay={3}
+                  colorClass="text-[#3776AB]"
+                />
+              </div>
             </div>
 
+            <motion.div
+              variants={itemFadeUp}
+              className="
+                relative z-20 mt-2 inline-flex items-center gap-3 rounded-xl sm:mt-3
+                border border-(--color-border) bg-(--color-surface)/80
+                px-4 py-2.5 text-left backdrop-blur-md
+              "
+            >
+              <span aria-hidden="true" className="h-8 w-1 rounded-full bg-primary" />
+              <span>
+                <span className="block text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">
+                  Currently Learning
+                </span>
+                <span className="block text-sm font-semibold">
+                  AI &amp; Cloud Technologies
+                </span>
+              </span>
+            </motion.div>
+
           </motion.div>
+
         </div>
       </div>
-
-      {/* Scroll hint */}
-      <a
-        href="#about"
-        className="
-          absolute
-
-          bottom-2
-          right-4
-          xl:right-8
-
-          hidden
-          lg:flex
-
-          scale-75
-          origin-bottom-right
-
-          items-center
-          gap-4
-
-          px-5
-          py-3
-
-          rounded-2xl
-
-          border border-white/10
-          bg-(--color-surface)/70
-
-          backdrop-blur-xl
-
-          shadow-lg
-          hover:shadow-2xl
-          hover:shadow-primary/10
-
-          hover:-translate-y-1
-          hover:border-primary/30
-
-          transition-all
-          duration-300
-
-          z-30
-        "
-      >
-        {/* Decorative Line */}
-        <div
-          className="
-            w-10
-            h-[1px]
-
-            bg-primary/50
-          "
-        />
-
-        {/* Text */}
-        <div className="text-sm">
-          <p className="text-muted">
-            Learn more about my
-          </p>
-
-          <p className="font-medium">
-            Journey & Experience
-          </p>
-        </div>
-
-        {/* Arrow */}
-        <div
-          className="
-            flex
-            items-center
-            justify-center
-
-            w-9
-            h-9
-
-            rounded-full
-
-            bg-primary/10
-
-            text-primary
-
-            text-lg
-          "
-        >
-          ↓
-        </div>
-      </a>
     </section>
   )
 }
@@ -568,61 +244,30 @@ const FloatingIcon = ({
   delay,
   colorClass,
 }: FloatingIconProps) => {
-  const shouldReduceMotion =
-    useReducedMotion()
+  const shouldReduceMotion = useReducedMotion()
 
   return (
-    <motion.div
-      animate={
-        shouldReduceMotion
-          ? {}
-          : {
-              y: [0, 12, 0],
-            }
-      }
-      transition={{
-        duration: 4,
-        repeat: Infinity,
-        delay,
-        ease: "easeInOut",
-      }}
-      whileHover={{
-        scale: 1.08,
-        rotate: 6,
-      }}
-      aria-hidden="true"
-      className={`
-        flex
-        items-center
-        justify-center
-
-        rounded-2xl
-
-        border border-(--color-border)
-        bg-(--color-surface)
-
-        backdrop-blur-md
-
-        shadow-lg
-
-        w-12
-        h-12
-
-        sm:w-14
-        sm:h-14
-
-        md:w-16
-        md:h-16
-
-        text-xl
-        sm:text-2xl
-
-        transition-all
-        ${colorClass}
-      `}
-    >
-      {icon}
-    </motion.div>
+    <div className="portrait-icon-slot">
+      <motion.div
+        animate={shouldReduceMotion ? {} : { y: [0, 4, 0] }}
+        transition={{
+          duration: 4,
+          repeat: Infinity,
+          delay,
+          ease: "easeInOut",
+        }}
+        whileHover={{ scale: 1.08, rotate: 6 }}
+        aria-hidden="true"
+        className={`
+          pointer-events-auto flex aspect-square w-full items-center justify-center rounded-[25%]
+          border border-(--color-border) bg-(--color-surface)
+          text-[clamp(0.75rem,1.7vw,1.375rem)] shadow-lg backdrop-blur-md transition-all
+          ${colorClass}
+        `}
+      >
+        {icon}
+      </motion.div>
+    </div>
   )
 }
 

@@ -1,26 +1,37 @@
-export const navLinks = [
+export type NavigationLink = {
+  label: string
+  href: string
+  sectionId?: string
+}
+
+export const navLinks: NavigationLink[] = [
   {
     label: "Home",
-    href: "#home",
+    href: "/#home",
+    sectionId: "home",
   },
   {
     label: "About",
-    href: "#about",
+    href: "/#about",
+    sectionId: "about",
   },
   {
     label: "Projects",
-    href: "#projects",
+    href: "/projects",
   },
   {
     label: "Skills",
-    href: "#skills",
+    href: "/#skills",
+    sectionId: "skills",
   },
   {
     label: "Journey",
-    href: "#journey",
+    href: "/#journey",
+    sectionId: "journey",
   },
   {
     label: "Contact",
-    href: "#contact",
+    href: "/#contact",
+    sectionId: "contact",
   },
 ]

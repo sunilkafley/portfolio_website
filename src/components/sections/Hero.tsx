@@ -88,17 +88,19 @@ const Hero = () => {
             </motion.div>
 
             <div
-              className="availability-badge mx-auto mb-4 grid w-fit max-w-full grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] items-center gap-x-2 gap-y-1 rounded-xl px-3 py-2 text-center lg:mx-0"
+              className="availability-badge mx-auto mb-4 flex w-fit max-w-full items-center gap-2 rounded-xl px-3 py-2 text-left lg:mx-0"
             >
               <span
                 aria-hidden="true"
-                className="availability-dot h-3 w-3 rounded-full motion-safe:animate-pulse"
+                className="availability-dot h-3 w-3 shrink-0 rounded-full motion-safe:animate-pulse"
               />
-              <span className="col-start-2 text-[11px] font-semibold tracking-[0.08em]">
-                Available for
-              </span>
-              <span className="col-span-3 text-sm font-medium leading-snug text-(--hero-opportunity-text)">
-                Internship &middot; Graduate &middot; Junior Developer
+              <span className="min-w-0 text-sm leading-snug">
+                <span className="font-semibold text-[11px] tracking-[0.08em] whitespace-nowrap">
+                  Available for
+                </span>{" "}
+                <span className="font-medium text-(--hero-opportunity-text)">
+                  Internship &middot; Graduate &middot; Junior Developer
+                </span>
               </span>
             </div>
 

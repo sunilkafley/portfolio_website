@@ -72,8 +72,9 @@ const Hero = () => {
               variants={itemFadeUp}
               className="hero-description mx-auto mb-3 max-w-[52ch] text-base text-muted sm:mb-5 sm:text-lg lg:mx-0 lg:mb-3"
             >
-              Building web and mobile applications with React, TypeScript,
-              Python and modern software engineering practices.
+              Building practical web and mobile applications that solve real problems —
+              from intuitive user interfaces to reliable backend systems, using
+              modern software engineering practices.
             </motion.p>
 
             <motion.div
@@ -83,21 +84,6 @@ const Hero = () => {
               <HiMapPin aria-hidden="true" className="h-5 w-5 shrink-0 text-(--hero-location-pin)" />
               <span>Christchurch, New Zealand</span>
             </motion.div>
-
-            <div
-              className="availability-badge mx-auto mb-3 grid w-fit max-w-full grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] items-center gap-x-2 gap-y-1 rounded-xl px-3 py-2 text-center sm:mb-4 sm:flex sm:gap-2 sm:text-left lg:mx-0 lg:mb-3"
-            >
-              <span
-                aria-hidden="true"
-                className="availability-dot h-3 w-3 shrink-0 rounded-full motion-safe:animate-pulse"
-              />
-              <span className="col-start-2 text-[11px] font-semibold tracking-[0.08em] whitespace-nowrap">
-                Available for
-              </span>
-              <span className="col-span-3 text-sm font-medium leading-snug text-(--hero-opportunity-text)">
-                Internship &middot; Graduate &middot; Junior Developer
-              </span>
-            </div>
 
             <motion.div
               variants={itemFadeUp}
@@ -128,6 +114,25 @@ const Hero = () => {
                 Let&apos;s Connect
               </span>
               <SocialLinks />
+            </motion.div>
+
+            <motion.div
+              variants={itemFadeUp}
+              className="
+                relative z-20 mt-4 inline-flex items-center gap-3 rounded-xl sm:mt-4
+                border border-(--color-border) bg-(--color-surface)/80
+                px-4 py-2.5 text-left backdrop-blur-md
+              "
+            >
+              <span aria-hidden="true" className="h-8 w-1 rounded-full bg-primary" />
+              <span>
+                <span className="block text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">
+                  Currently Learning
+                </span>
+                <span className="block text-sm font-semibold">
+                  AI &amp; Cloud Technologies
+                </span>
+              </span>
             </motion.div>
           </motion.div>
 
@@ -179,24 +184,20 @@ const Hero = () => {
               </div>
             </div>
 
-            <motion.div
-              variants={itemFadeUp}
-              className="
-                relative z-20 mt-2 inline-flex items-center gap-3 rounded-xl sm:mt-3
-                border border-(--color-border) bg-(--color-surface)/80
-                px-4 py-2.5 text-left backdrop-blur-md
-              "
+            <div
+              className="availability-badge mx-auto mt-2 grid w-fit max-w-full grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] items-center gap-x-2 gap-y-1 rounded-xl px-3 py-2 text-center sm:mt-3 sm:flex sm:gap-2 sm:text-left"
             >
-              <span aria-hidden="true" className="h-8 w-1 rounded-full bg-primary" />
-              <span>
-                <span className="block text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">
-                  Currently Learning
-                </span>
-                <span className="block text-sm font-semibold">
-                  AI &amp; Cloud Technologies
-                </span>
+              <span
+                aria-hidden="true"
+                className="availability-dot h-3 w-3 shrink-0 rounded-full motion-safe:animate-pulse"
+              />
+              <span className="col-start-2 text-[11px] font-semibold tracking-[0.08em] whitespace-nowrap">
+                Open to Opportunities
               </span>
-            </motion.div>
+              <span className="col-span-3 text-sm font-medium leading-snug text-(--hero-opportunity-text)">
+                Internship &middot; Graduate &middot; Junior Developer
+              </span>
+            </div>
 
           </motion.div>
 

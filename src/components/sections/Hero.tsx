@@ -14,24 +14,25 @@ import portraitCutoutSmall from "../../assets/images/profile-320.webp"
 import portraitCutoutMedium from "../../assets/images/profile-640.webp"
 
 import SocialLinks from "../ui/SocialLinks"
+import { MessageCircle } from "lucide-react"
 
 import {
   itemFadeUp,
   staggerContainer,
 } from "../../utils/motion"
 
-const Hero = () => {
+const Hero = ({ onAskSunil, assistantOpen }: { onAskSunil: (button: HTMLButtonElement) => void; assistantOpen: boolean }) => {
   return (
     <section
       id="home"
-      className="relative flex items-start overflow-hidden pt-24 pb-8 sm:pb-10 lg:pt-22 lg:pb-4"
+      className="relative flex items-start overflow-hidden pt-24 pb-8 sm:pb-10 lg:pt-22 lg:pb-4 max-md:pt-20 max-md:pb-4"
     >
       <div className="hero-grid absolute inset-0 -z-10" />
 
       <div className="container-custom">
         <div
           className="
-            grid grid-cols-1 items-center gap-x-12 gap-y-5 sm:gap-y-8
+            grid grid-cols-1 items-center gap-x-12 gap-y-5 sm:gap-y-8 max-md:gap-y-3
             lg:grid-cols-2 lg:gap-y-0
             xl:gap-x-16
           "
@@ -48,21 +49,21 @@ const Hero = () => {
           >
             <motion.p
               variants={itemFadeUp}
-              className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-primary sm:mb-4 sm:text-base lg:mb-2"
+              className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-primary sm:mb-4 sm:text-base lg:mb-2 max-md:mb-1"
             >
               Kia Ora, I&apos;m
             </motion.p>
 
             <motion.h1
               variants={itemFadeUp}
-              className="mb-2 text-4xl font-bold leading-tight sm:mb-4 sm:text-5xl md:text-6xl lg:mb-2 xl:text-7xl"
+              className="mb-2 text-4xl font-bold leading-tight sm:mb-4 sm:text-5xl md:text-6xl lg:mb-2 xl:text-7xl max-md:mb-1 max-md:text-[clamp(2.25rem,9vw,3rem)]"
             >
               Sunil <span className="heading-gradient">Kafley</span>
             </motion.h1>
 
             <motion.h2
               variants={itemFadeUp}
-              className="mb-3 text-lg leading-[1.45] font-semibold text-(--color-text) sm:mb-5 sm:text-xl md:text-2xl lg:mb-3"
+              className="mb-3 text-lg leading-[1.45] font-semibold text-(--color-text) sm:mb-5 sm:text-xl md:text-2xl lg:mb-3 max-md:mb-2 max-md:text-[1.15rem] max-md:leading-snug"
             >
               <span className="block">Software Engineering Student</span>
               <span className="block">&amp; Full-Stack Developer</span>
@@ -70,7 +71,7 @@ const Hero = () => {
 
             <motion.p
               variants={itemFadeUp}
-              className="hero-description mx-auto mb-3 max-w-[52ch] text-base text-muted sm:mb-5 sm:text-lg lg:mx-0 lg:mb-3"
+              className="hero-description mx-auto mb-3 max-w-[52ch] text-base text-muted sm:mb-5 sm:text-lg lg:mx-0 lg:mb-3 max-md:mb-2 max-md:text-[0.95rem]"
             >
               Building practical web and mobile applications that solve real problems —
               from intuitive user interfaces to reliable backend systems, using
@@ -79,7 +80,7 @@ const Hero = () => {
 
             <motion.div
               variants={itemFadeUp}
-              className="mb-3 inline-flex items-center gap-2 text-sm text-muted sm:mb-5 sm:text-base lg:mb-2"
+              className="mb-3 inline-flex items-center gap-2 text-sm text-muted sm:mb-5 sm:text-base lg:mb-2 max-md:mb-2 max-md:text-sm"
             >
               <HiMapPin aria-hidden="true" className="h-5 w-5 shrink-0 text-(--hero-location-pin)" />
               <span>Christchurch, New Zealand</span>
@@ -87,7 +88,7 @@ const Hero = () => {
 
             <motion.div
               variants={itemFadeUp}
-              className="mb-6 flex flex-row flex-wrap items-center justify-center gap-3 lg:mb-4 lg:justify-start"
+              className="hero-actions mb-6 flex flex-row flex-wrap items-center justify-center gap-3 lg:mb-4 lg:justify-start max-md:mb-3 max-md:gap-2"
             >
               <Link
                 to="/projects"
@@ -108,13 +109,21 @@ const Hero = () => {
 
             <motion.div
               variants={itemFadeUp}
-              className="flex flex-col items-center gap-3 lg:items-start lg:gap-2"
+              className="flex flex-col items-center gap-3 lg:items-start lg:gap-2 max-md:gap-2"
             >
               <span className="text-xs font-semibold uppercase tracking-[0.16em] text-muted">
                 Let&apos;s Connect
               </span>
               <SocialLinks />
+              <button className="assistant-inline" aria-expanded={assistantOpen} aria-haspopup="dialog" aria-controls={assistantOpen ? 'portfolio-assistant-panel' : undefined} onClick={event => onAskSunil(event.currentTarget)}>
+                <MessageCircle size={18} aria-hidden="true" /> Ask Sunil
+              </button>
             </motion.div>
+
+            <Link to="/#journey" className="mt-3 flex flex-col items-center text-sm text-muted md:hidden focus-visible:outline-2 focus-visible:outline-primary">
+              <span className="text-[10px] font-semibold">Learn More About</span>
+              <span>My Journey &amp; Experience ↓</span>
+            </Link>
 
           </motion.div>
 
@@ -167,7 +176,7 @@ const Hero = () => {
             </div>
 
             <div
-              className="availability-badge mx-auto mt-2 grid w-fit max-w-full grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] items-center gap-x-2 gap-y-1 rounded-xl px-3 py-2 text-center sm:mt-3 sm:flex sm:gap-2 sm:text-left"
+              className="availability-badge mx-auto mt-2 grid w-fit max-w-full grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] items-center gap-x-2 gap-y-1 rounded-xl px-3 py-2 text-center sm:mt-3 sm:flex sm:gap-2 sm:text-left max-md:mt-1 max-md:grid max-md:gap-y-0 max-md:px-3 max-md:py-1 max-md:text-center"
             >
               <span
                 aria-hidden="true"

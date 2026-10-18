@@ -116,24 +116,6 @@ const Hero = () => {
               <SocialLinks />
             </motion.div>
 
-            <motion.div
-              variants={itemFadeUp}
-              className="
-                relative z-20 mt-4 inline-flex items-center gap-3 rounded-xl sm:mt-4
-                border border-(--color-border) bg-(--color-surface)/80
-                px-4 py-2.5 text-left backdrop-blur-md
-              "
-            >
-              <span aria-hidden="true" className="h-8 w-1 rounded-full bg-primary" />
-              <span>
-                <span className="block text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">
-                  Currently Learning
-                </span>
-                <span className="block text-sm font-semibold">
-                  AI &amp; Cloud Technologies
-                </span>
-              </span>
-            </motion.div>
           </motion.div>
 
           <motion.div

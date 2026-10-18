@@ -66,6 +66,6 @@ export default function PortfolioAssistant() {
         <p className="assistant-note">Predefined answers · Portfolio &amp; CV sources</p>
       </div>
     </div>}
-    <button ref={launcher} className="assistant-launcher" aria-expanded={open} aria-controls={open ? 'portfolio-assistant-panel' : undefined} aria-haspopup="dialog" onClick={() => open ? close() : setOpen(true)}><MessageCircle size={20} aria-hidden="true" /> Ask Sunil</button>
+    <button ref={launcher} className="assistant-launcher" aria-label="Ask Sunil" aria-expanded={open} aria-controls={open ? 'portfolio-assistant-panel' : undefined} aria-haspopup="dialog" onClick={() => open ? close() : setOpen(true)}><MessageCircle size={20} aria-hidden="true" /><span>Ask Sunil</span></button>
   </aside>
 }

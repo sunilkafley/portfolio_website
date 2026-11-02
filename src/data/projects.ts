@@ -11,6 +11,7 @@ export const projects: Project[] = [
     shortDescription:
       "A website redesign for Prostate Cancer Foundation New Zealand.",
     technologies: [],
+    image: "/projects/prostate-foundation.jpg",
     liveUrl: "https://sunilkafley.github.io/project-blue-spark/",
     featured: true,
     status: "Live",

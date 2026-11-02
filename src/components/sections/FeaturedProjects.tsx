@@ -20,8 +20,8 @@ const FeaturedProjects = () => {
         relative
         overflow-hidden
 
-        pt-6
-        sm:pt-8
+        pt-3
+        sm:pt-4
         lg:pt-4
 
         pb-16

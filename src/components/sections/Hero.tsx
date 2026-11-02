@@ -132,7 +132,7 @@ const Hero = () => {
               lg:order-none lg:col-start-2 lg:row-start-1
             "
           >
-            <div className="portrait-stage relative grid w-full place-items-center">
+            <div className="portrait-stage relative grid w-full place-items-center max-sm:translate-x-4">
               <img
                 src={portraitCutout}
                 srcSet={`${portraitCutoutSmall} 320w, ${portraitCutoutMedium} 640w, ${portraitCutout} 920w`}

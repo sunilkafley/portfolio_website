@@ -68,7 +68,6 @@ export default function PortfolioAssistant({ open, onOpen, onClose }: { open: bo
         </div>)}
       </div>
       <div className="assistant-bottom">
-        {stream && <button className="assistant-skip" onClick={finish}>Skip animation</button>}
         <div className="assistant-chips" aria-label="Quick questions">{quickQuestions.map(question => <button key={question} onClick={() => ask(question)}>{question}</button>)}</div>
         <form onSubmit={event => { event.preventDefault(); ask(input) }} className="assistant-form">
           <label htmlFor="assistant-question" className="sr-only">Ask about Sunil</label>

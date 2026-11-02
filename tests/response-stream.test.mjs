@@ -62,16 +62,16 @@ function harness(reduced = false) {
   }
 }
 
-test('400ms indicator, 32 graphemes/second, Unicode and multiline completion', () => {
+test('150ms indicator, 100 graphemes/second, Unicode and multiline completion', () => {
   const h = harness()
   const text = 'A👩🏽‍💻e\u0301\n— hello!'
   h.hook.start(1, text)
   assert.equal(h.state.typing, true)
-  h.advance(399)
+  h.advance(149)
   assert.equal(h.state.count, 0)
   h.advance(1)
   assert.equal(h.state.typing, false)
-  h.advance(1000 / 32 * 3)
+  h.advance(1000 / 100 * 3)
   assert.equal(h.state.characters.slice(0, h.state.count).join(''), 'A👩🏽‍💻e\u0301')
   assert.equal(h.state.characters.join(''), text)
   h.advance(1000)
@@ -79,7 +79,7 @@ test('400ms indicator, 32 graphemes/second, Unicode and multiline completion', (
   assert.equal(h.pending, 0)
 })
 
-test('replacement, skip/close and unmount leave no scheduled work', () => {
+test('replacement, close and unmount leave no scheduled work', () => {
   const h = harness()
   h.hook.start(1, 'A'.repeat(200))
   h.advance(450)

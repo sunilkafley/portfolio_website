@@ -29,8 +29,8 @@ export default function useResponseStream() {
         count += 1
         if (count >= characters.length) { finish(); return }
         setStream(previous => previous?.id === id ? { ...previous, count } : previous)
-      }, 1000 / 32)
-    }, 400)
+      }, 1000 / 100)
+    }, 150)
   }, [clearTimers, finish])
 
   useEffect(() => {

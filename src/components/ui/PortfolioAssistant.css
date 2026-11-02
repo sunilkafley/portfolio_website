@@ -41,4 +41,13 @@
 .assistant-cursor { animation: assistant-dot 1s ease-in-out infinite; color: var(--color-text-muted); }
 @keyframes assistant-dot { 50% { opacity: .3; } }
 @media (prefers-reduced-motion: reduce) { .assistant-typing i, .assistant-cursor { animation: none; } }
+@media (max-width: 767px) {
+  .assistant-panel { width: min(340px, calc(100vw - 32px)); height: min(440px, 62dvh, calc(100dvh - max(16px, env(safe-area-inset-bottom)) - 84px)); }
+  .assistant-header { padding: 8px 12px; }
+  .assistant-conversation { padding: 10px 12px; }
+  .assistant-bottom { padding: 8px 12px; }
+  .assistant-chips { flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-x: contain; padding-bottom: 4px; margin-bottom: 6px; }
+  .assistant-chips button { flex: none; }
+  .assistant-note { margin-top: 4px; }
+}
 @media (max-height: 550px) { .assistant-header { padding: 6px 12px; } .assistant-bottom { padding: 8px 12px; } .assistant-note { display: none; } .assistant-chips { margin-bottom: 6px; gap: 4px; } }

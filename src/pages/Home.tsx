@@ -13,7 +13,7 @@ import SectionDivider from "../components/ui/SectionDivider"
 import SEO from "../components/ui/SEO"
 import GridBackground from "../components/ui/GridBackground"
 
-const Home = ({ onAskSunil, assistantOpen }: { onAskSunil: (button: HTMLButtonElement) => void; assistantOpen: boolean }) => {
+const Home = () => {
   return (
     <>
       <SEO
@@ -25,7 +25,7 @@ const Home = ({ onAskSunil, assistantOpen }: { onAskSunil: (button: HTMLButtonEl
       <Header />
 
       <main>
-        <Hero onAskSunil={onAskSunil} assistantOpen={assistantOpen} />
+        <Hero />
         <SectionDivider />
         <FeaturedProjects />
         <SectionDivider />

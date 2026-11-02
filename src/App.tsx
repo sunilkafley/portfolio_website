@@ -27,7 +27,7 @@ function App() {
       <ScrollToTop />
 
       <Routes>
-        <Route path="/" element={<Home onAskSunil={openAssistant} assistantOpen={assistantOpen} />} />
+        <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

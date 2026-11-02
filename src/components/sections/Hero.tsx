@@ -14,14 +14,13 @@ import portraitCutoutSmall from "../../assets/images/profile-320.webp"
 import portraitCutoutMedium from "../../assets/images/profile-640.webp"
 
 import SocialLinks from "../ui/SocialLinks"
-import { MessageCircle } from "lucide-react"
 
 import {
   itemFadeUp,
   staggerContainer,
 } from "../../utils/motion"
 
-const Hero = ({ onAskSunil, assistantOpen }: { onAskSunil: (button: HTMLButtonElement) => void; assistantOpen: boolean }) => {
+const Hero = () => {
   return (
     <section
       id="home"
@@ -115,9 +114,6 @@ const Hero = ({ onAskSunil, assistantOpen }: { onAskSunil: (button: HTMLButtonEl
                 Let&apos;s Connect
               </span>
               <SocialLinks />
-              <button className="assistant-inline" aria-expanded={assistantOpen} aria-haspopup="dialog" aria-controls={assistantOpen ? 'portfolio-assistant-panel' : undefined} onClick={event => onAskSunil(event.currentTarget)}>
-                <MessageCircle size={18} aria-hidden="true" /> Ask Sunil
-              </button>
             </motion.div>
 
             <Link to="/#journey" className="mt-3 flex flex-col items-center text-sm text-muted md:hidden focus-visible:outline-2 focus-visible:outline-primary">

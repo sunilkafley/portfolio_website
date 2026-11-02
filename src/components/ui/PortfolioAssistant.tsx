@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router'
-import { MessageCircle, Send, X } from 'lucide-react'
+import { MessageCircle, MessageSquareMore, Send, X } from 'lucide-react'
 import { getPortfolioAnswer, quickQuestions, type Answer } from '../../data/assistant'
 import './PortfolioAssistant.css'
 import useResponseStream from './useResponseStream'
@@ -79,6 +79,6 @@ export default function PortfolioAssistant({ open, onOpen, onClose }: { open: bo
       </div>
     </div>}
     <div className="sr-only" role="status" aria-live="polite" aria-atomic="true">{announcement}</div>
-    <button className="assistant-launcher" aria-label="Ask Sunil" aria-expanded={open} aria-controls={open ? 'portfolio-assistant-panel' : undefined} aria-haspopup="dialog" onClick={event => open ? close() : onOpen(event.currentTarget)}><MessageCircle size={20} aria-hidden="true" /><span>Ask Sunil</span></button>
+    <button className="assistant-launcher" aria-label="Ask Sunil" aria-expanded={open} aria-controls={open ? 'portfolio-assistant-panel' : undefined} aria-haspopup="dialog" onClick={event => open ? close() : onOpen(event.currentTarget)}><MessageSquareMore size={28} strokeWidth={2.5} aria-hidden="true" /></button>
   </aside>
 }

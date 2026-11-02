@@ -25,14 +25,14 @@ const Hero = ({ onAskSunil, assistantOpen }: { onAskSunil: (button: HTMLButtonEl
   return (
     <section
       id="home"
-      className="relative flex items-start overflow-hidden pt-24 pb-8 sm:pb-10 lg:pt-22 lg:pb-4 max-md:pt-20 max-md:pb-4"
+      className="relative flex items-start overflow-hidden pt-24 pb-8 sm:pb-10 lg:pt-22 lg:pb-4 max-md:pt-[4.75rem] max-md:pb-4"
     >
       <div className="hero-grid absolute inset-0 -z-10" />
 
       <div className="container-custom">
         <div
           className="
-            grid grid-cols-1 items-center gap-x-12 gap-y-5 sm:gap-y-8 max-md:gap-y-3
+            grid grid-cols-1 items-center gap-x-12 gap-y-5 sm:gap-y-8 max-md:gap-y-1
             lg:grid-cols-2 lg:gap-y-0
             xl:gap-x-16
           "
@@ -49,14 +49,14 @@ const Hero = ({ onAskSunil, assistantOpen }: { onAskSunil: (button: HTMLButtonEl
           >
             <motion.p
               variants={itemFadeUp}
-              className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-primary sm:mb-4 sm:text-base lg:mb-2 max-md:mb-1"
+              className="mb-2 text-sm font-semibold uppercase tracking-[0.16em] text-primary sm:mb-4 sm:text-base lg:mb-2 max-md:mb-0 max-md:leading-tight"
             >
               Kia Ora, I&apos;m
             </motion.p>
 
             <motion.h1
               variants={itemFadeUp}
-              className="mb-2 text-4xl font-bold leading-tight sm:mb-4 sm:text-5xl md:text-6xl lg:mb-2 xl:text-7xl max-md:mb-1 max-md:text-[clamp(2.25rem,9vw,3rem)]"
+              className="mb-2 text-4xl font-bold leading-tight sm:mb-4 sm:text-5xl md:text-6xl lg:mb-2 xl:text-7xl max-md:mb-1 max-md:text-[clamp(2rem,8vw,2.5rem)]"
             >
               Sunil <span className="heading-gradient">Kafley</span>
             </motion.h1>
@@ -176,16 +176,18 @@ const Hero = ({ onAskSunil, assistantOpen }: { onAskSunil: (button: HTMLButtonEl
             </div>
 
             <div
-              className="availability-badge mx-auto mt-2 grid w-fit max-w-full grid-cols-[0.75rem_minmax(0,1fr)_0.75rem] items-center gap-x-2 gap-y-1 rounded-xl px-3 py-2 text-center sm:mt-3 sm:flex sm:gap-2 sm:text-left max-md:mt-1 max-md:grid max-md:gap-y-0 max-md:px-3 max-md:py-1 max-md:text-center"
+              className="availability-badge mx-auto mt-2 flex w-fit max-w-full items-center gap-2 rounded-xl px-3 py-2 text-left sm:mt-3 max-md:mt-0 max-md:flex-col max-md:gap-0 max-md:px-3 max-md:py-1 max-md:text-center"
             >
-              <span
-                aria-hidden="true"
-                className="availability-dot h-3 w-3 shrink-0 rounded-full motion-safe:animate-pulse"
-              />
-              <span className="col-start-2 text-[11px] font-semibold tracking-[0.08em] whitespace-nowrap">
-                Open to Opportunities
+              <span className="inline-flex items-center justify-center gap-2">
+                <span
+                  aria-hidden="true"
+                  className="availability-dot h-3 w-3 shrink-0 rounded-full motion-safe:animate-pulse"
+                />
+                <span className="text-[11px] font-semibold tracking-[0.08em] whitespace-nowrap max-md:text-sm max-md:tracking-normal">
+                  Open to Opportunities
+                </span>
               </span>
-              <span className="col-span-3 text-sm font-medium leading-snug text-(--hero-opportunity-text)">
+              <span className="text-sm font-medium leading-snug text-(--hero-opportunity-text)">
                 Internship &middot; Graduate &middot; Junior Developer
               </span>
             </div>

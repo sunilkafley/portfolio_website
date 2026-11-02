@@ -5,6 +5,18 @@ const detailsPendingDescription =
 
 export const projects: Project[] = [
   {
+    id: "prostate-cancer-foundation-nz-redesign",
+    slug: "prostate-cancer-foundation-nz-redesign",
+    title: "Prostate Cancer Foundation New Zealand Website Redesign",
+    shortDescription:
+      "A website redesign for Prostate Cancer Foundation New Zealand.",
+    technologies: [],
+    liveUrl: "https://sunilkafley.github.io/project-blue-spark/",
+    featured: true,
+    status: "Live",
+    category: "Web",
+  },
+  {
     id: "fruit-finder-christchurch",
     slug: "fruit-finder-christchurch",
     title: "Fruit Finder Christchurch",

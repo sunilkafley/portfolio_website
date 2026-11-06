@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import {
-  Code2,
-  GraduationCap,
+  Search,
+  MessageSquare,
   CheckCircle2,
   ArrowDown,
 } from "lucide-react"
@@ -15,9 +15,14 @@ const About = () => {
     <section
       id="about"
       className="
-        section-spacing
         relative
         overflow-hidden
+        pt-3
+        sm:pt-4
+        lg:pt-4
+        pb-16
+        sm:pb-20
+        lg:pb-24
       "
     >
       {/* Background Glow */}
@@ -86,30 +91,27 @@ const About = () => {
               max-w-xl
             "
           >
-            Turning passion{" "}
+            A thoughtful approach{" "}
             <span className="heading-gradient">
-              into purpose
-            </span>{" "}
-            through code.
+              to building software.
+            </span>
           </h2>
 
           {/* Description */}
-          <p
-            className="
-              text-muted
-              text-base
-              sm:text-lg
-
-              leading-relaxed
-
-              max-w-2xl
-            "
-          >
-            I'm a self-motivated developer focused on
-            building responsive and modern digital
-            experiences using React, TypeScript,
-            Django and modern frontend technologies.
-          </p>
+          <div className="max-w-2xl space-y-5 text-base leading-relaxed text-muted sm:text-lg">
+            <p>
+              I enjoy turning practical needs into clear interfaces and working
+              functionality, while developing my understanding of maintainable
+              code and reliable software.
+            </p>
+            <p>
+              AI-assisted development is becoming part of how I work. I use it to
+              explore approaches, investigate issues and refine implementations,
+              while reviewing the changes and checking the resulting behaviour.
+              I’m interested in developing workflows that improve both delivery
+              and software quality.
+            </p>
+          </div>
 
         </motion.div>
 
@@ -142,28 +144,28 @@ const About = () => {
             >
 
               <div className="card p-6">
-                <Code2 className="w-6 h-6 mb-5 text-primary" />
+                <Search className="w-6 h-6 mb-5 text-primary" />
 
                 <h3 className="font-semibold text-lg mb-3">
-                  Full Stack Development
+                  Start with the Problem
                 </h3>
 
                 <p className="text-muted leading-relaxed">
-                  Building scalable frontend and backend
-                  applications using modern technologies.
+                  Understanding who a feature is for, what they need and
+                  which details will make it useful.
                 </p>
               </div>
 
               <div className="card p-6">
-                <GraduationCap className="w-6 h-6 mb-5 text-primary" />
+                <MessageSquare className="w-6 h-6 mb-5 text-primary" />
 
                 <h3 className="font-semibold text-lg mb-3">
-                  Continuous Learning
+                  Refine through Feedback
                 </h3>
 
                 <p className="text-muted leading-relaxed">
-                  Exploring AI, cloud technologies and
-                  advanced software engineering concepts.
+                  Staying open to other perspectives and using feedback
+                  to make the next iteration better.
                 </p>
               </div>
 

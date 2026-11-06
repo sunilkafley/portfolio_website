@@ -12,9 +12,14 @@ const Journey = () => {
     <section
       id="journey"
       className="
-        section-spacing
         relative
         overflow-hidden
+        pt-3
+        sm:pt-4
+        lg:pt-4
+        pb-16
+        sm:pb-20
+        lg:pb-24
       "
     >
       {/* Background Glow */}
@@ -41,7 +46,7 @@ const Journey = () => {
         {/* Section Intro */}
         <motion.div
           {...fadeUp}
-          className="max-w-2xl mb-14 lg:mb-16"
+          className="mb-8 max-w-2xl sm:mb-10"
         >
 
           {/* Badge */}
@@ -82,9 +87,9 @@ const Journey = () => {
               max-w-xl
             "
           >
-            Learning and growing{" "}
+            From supporting systems{" "}
             <span className="heading-gradient">
-              every year.
+              to building software.
             </span>
           </h2>
 
@@ -100,64 +105,13 @@ const Journey = () => {
               max-w-2xl
             "
           >
-            My path into software development has
-            been driven by curiosity, consistency
-            and a passion for creating meaningful
-            digital products.
+            My path into development builds on a background in IT support and systems administration. Each stage has shaped how I investigate problems, understand users and approach new challenges.
           </p>
-
-          {/* Journey Highlights */}
-            <div
-              className="
-                flex
-                flex-wrap
-                gap-3
-
-                mt-8
-              "
-            >
-              {[
-                "React",
-                "TypeScript",
-                "Django",
-                "Tailwind CSS",
-                "Responsive UI",
-                "Full-Stack Development",
-              ].map((tech) => (
-                <div
-                  key={tech}
-                  className="
-                    px-4
-                    py-2
-
-                    rounded-full
-
-                    border border-border
-                    bg-card/60
-                    backdrop-blur-sm
-
-                    text-sm
-                    font-medium
-
-                    text-muted-foreground
-
-                    hover:border-primary/40
-                    hover:text-foreground
-                    hover:bg-card
-
-                    transition-all
-                    duration-300
-                  "
-                >
-                  {tech}
-                </div>
-              ))}
-            </div>
 
         </motion.div>
 
         {/* Timeline */}
-        <div className="max-w-4xl">
+        <ol aria-label="Career and education journey" className="max-w-3xl">
 
           {timeline.map((item) => (
             <TimelineItem
@@ -166,7 +120,7 @@ const Journey = () => {
             />
           ))}
 
-        </div>
+        </ol>
 
       </Container>
 

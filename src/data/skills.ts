@@ -13,6 +13,7 @@ import {
   SiTailwindcss,
   SiDjango,
   SiPostgresql,
+  SiSqlite,
   SiVercel,
   SiFigma,
 } from "react-icons/si"
@@ -20,6 +21,11 @@ import {
 export const skillCategories: SkillCategory[] = [
   {
     title: "Frontend",
+    description: "Building responsive interfaces and interactive maps.",
+    evidence: {
+      label: "See Fruit Finder Christchurch",
+      href: "https://sunilkafley.github.io/BCDE213-Interactive-Media-Development/",
+    },
     skills: [
       { name: "React", icon: FaReact },
       { name: "TypeScript", icon: SiTypescript },
@@ -29,19 +35,32 @@ export const skillCategories: SkillCategory[] = [
   },
 
   {
-    title: "Backend",
+    title: "Backend & Databases",
+    description: "Working with authentication, data models and application logic.",
+    evidence: {
+      label: "Explore the vehicle rental source",
+      href: "https://github.com/sunilkafley/vehiclerentalmanagement",
+    },
     skills: [
       { name: "Python", icon: FaPython },
       { name: "Django", icon: SiDjango },
+      { name: "SQLite", icon: SiSqlite },
       { name: "PostgreSQL", icon: SiPostgresql },
     ],
   },
 
   {
-    title: "Tools & Deployment",
+    title: "Version Control",
+    description: "Tracking changes and organising project code.",
     skills: [
       { name: "Git", icon: FaGitAlt },
       { name: "GitHub", icon: FaGithub },
+    ],
+  },
+  {
+    title: "Design & Deployment",
+    description: "Tools for exploring interface designs and publishing web projects.",
+    skills: [
       { name: "Vercel", icon: SiVercel },
       { name: "Figma", icon: SiFigma },
     ],

@@ -7,5 +7,7 @@ export interface Skill {
 
 export interface SkillCategory {
   title: string
+  description: string
+  evidence?: { label: string; href: string }
   skills: Skill[]
 }

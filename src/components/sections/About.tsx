@@ -100,9 +100,12 @@ const About = () => {
           {/* Description */}
           <div className="max-w-2xl space-y-5 text-base leading-relaxed text-muted sm:text-lg">
             <p>
-              I enjoy turning practical needs into clear interfaces and working
-              functionality, while developing my understanding of maintainable
-              code and reliable software.
+              I’m a software engineering student and aspiring full-stack developer
+              who enjoys building practical web and mobile applications. I use
+              design thinking to understand user needs and an Agile approach to
+              improve solutions through feedback. I focus on readable,
+              maintainable code and applying software engineering practices
+              throughout my projects.
             </p>
             <p>
               AI-assisted development is becoming part of how I work. I use it to
@@ -147,12 +150,12 @@ const About = () => {
                 <Search className="w-6 h-6 mb-5 text-primary" />
 
                 <h3 className="font-semibold text-lg mb-3">
-                  Start with the Problem
+                  Design Thinking
                 </h3>
 
                 <p className="text-muted leading-relaxed">
-                  Understanding who a feature is for, what they need and
-                  which details will make it useful.
+                  Understanding user needs, exploring ideas and testing prototypes
+                  to shape useful solutions.
                 </p>
               </div>
 
@@ -160,12 +163,12 @@ const About = () => {
                 <MessageSquare className="w-6 h-6 mb-5 text-primary" />
 
                 <h3 className="font-semibold text-lg mb-3">
-                  Refine through Feedback
+                  Agile Development
                 </h3>
 
                 <p className="text-muted leading-relaxed">
-                  Staying open to other perspectives and using feedback
-                  to make the next iteration better.
+                  Building in small iterations, reviewing progress and using
+                  feedback to improve the next version.
                 </p>
               </div>
 

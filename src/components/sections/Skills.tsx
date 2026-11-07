@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react"
 
 import Container from "../layout/Container"
 import SkillCard from "../ui/SkillCard"
-import { skillCategories } from "../../data/skills"
+import { developmentPractices, skillCategories } from "../../data/skills"
 import { fadeUp } from "../../utils/motion"
 
 const Skills = () => {
@@ -60,6 +60,36 @@ const Skills = () => {
               </ul>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-12 border-t border-(--color-border) pt-10 sm:mt-16 sm:pt-12" aria-labelledby="development-practices-heading">
+          <motion.div {...fadeUp} className="mb-6 max-w-2xl">
+            <h3 id="development-practices-heading" className="mb-3 text-2xl font-bold sm:text-3xl">
+              Development Practices
+            </h3>
+            <p className="text-base leading-relaxed text-muted">
+              Approaches and principles I’m learning and applying across my
+              academic and personal projects, depending on each project’s needs.
+            </p>
+          </motion.div>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:gap-6">
+            {developmentPractices.map((group) => (
+              <motion.div {...fadeUp} key={group.title} className="card min-w-0 p-6">
+                <h4 className="mb-2 text-lg font-semibold">{group.title}</h4>
+                <p className="mb-4 text-sm leading-relaxed text-muted">
+                  {group.description}
+                </p>
+                <ul aria-label={group.title + " practices"} className="flex flex-wrap gap-2">
+                  {group.practices.map((practice) => (
+                    <li key={practice} className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5 text-sm">
+                      {practice}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

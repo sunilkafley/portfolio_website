@@ -66,3 +66,26 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
 ]
+
+export const developmentPractices = [
+  {
+    title: "Process",
+    description: "Understanding needs and organising work in manageable steps.",
+    practices: ["Design thinking", "Agile development", "Scrum", "Kanban"],
+  },
+  {
+    title: "Code Quality",
+    description: "Keeping code readable, focused and easier to maintain.",
+    practices: ["SOLID principles", "DRY", "Separation of concerns"],
+  },
+  {
+    title: "Architecture",
+    description: "Separating responsibilities to make applications easier to extend.",
+    practices: ["MVC", "Layered architecture"],
+  },
+  {
+    title: "Testing & Delivery",
+    description: "Checking behaviour and delivering changes with confidence.",
+    practices: ["Unit testing", "Git", "CI/CD"],
+  },
+]

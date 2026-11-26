@@ -129,7 +129,7 @@ const Hero = () => {
             animate="show"
             className="
               order-1 flex flex-col items-center justify-center
-              lg:order-none lg:col-start-2 lg:row-start-1
+              lg:order-none lg:col-start-2 lg:row-start-1 lg:mx-auto lg:w-full lg:max-w-[520px]
             "
           >
             <div className="portrait-stage relative grid w-full place-items-center max-sm:translate-x-4">
@@ -143,7 +143,7 @@ const Hero = () => {
                 fetchPriority="high"
                 className="
                   hero-portrait-image relative z-10 col-start-1 row-start-1 h-auto w-[min(62%,200px)] object-contain sm:w-[min(86%,520px)]
-                  lg:w-[min(86%,450px)] xl:w-[min(86%,520px)]
+                  lg:w-full
                 "
               />
 
@@ -172,19 +172,20 @@ const Hero = () => {
             </div>
 
             <div
-              className="availability-badge mx-auto mt-2 flex w-fit max-w-full items-center gap-2 rounded-xl px-3 py-2 text-left sm:mt-3 max-md:mt-0 max-md:flex-col max-md:gap-0 max-md:px-3 max-md:py-1 max-md:text-center"
+              // Match the visible hoodie base, excluding the portrait's transparent edges.
+              className="availability-summary mx-auto mt-3 flex w-fit max-w-full flex-col items-center justify-center gap-2 text-center lg:mx-0 lg:ml-[2%] lg:w-[74%] lg:self-start max-md:mt-2"
             >
               <span className="inline-flex items-center justify-center gap-2">
                 <span
                   aria-hidden="true"
                   className="availability-dot h-3 w-3 shrink-0 rounded-full motion-safe:animate-pulse"
                 />
-                <span className="text-[11px] font-semibold tracking-[0.08em] whitespace-nowrap max-md:text-sm max-md:tracking-normal">
+                <span className="text-base font-semibold leading-6 sm:text-lg">
                   Open to Opportunities
                 </span>
               </span>
-              <span className="text-sm font-medium leading-snug text-(--hero-opportunity-text)">
-                Internship &middot; Graduate &middot; Junior Developer
+              <span className="availability-roles max-w-full rounded-full px-6 py-3 text-lg font-semibold leading-[1.45] sm:text-xl md:text-2xl max-md:text-[1.15rem] max-md:leading-snug">
+                Internship &middot; Graduate
               </span>
             </div>
 

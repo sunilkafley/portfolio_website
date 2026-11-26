@@ -452,10 +452,14 @@ html.lenis body {
     color: var(--color-text-muted);
   }
 
-  .availability-badge {
-    background: var(--availability-bg);
-    border: 1px solid var(--availability-border);
+  .availability-summary {
     color: var(--availability-text);
+  }
+
+  .availability-roles {
+    background: #fff;
+    border: 1px solid var(--availability-border);
+    color: #1D4ED8;
   }
 
   .availability-dot {
